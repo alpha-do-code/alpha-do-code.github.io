@@ -18,61 +18,44 @@
   <header class="site-header">
     <nav class="navbar">
       <a href="#hero" class="logo">Alpha<span class="logo-dot">.</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#skills">Compétences</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="lang-toggle" aria-label="Changer la langue">FR / EN</button>
-    </nav>
+        <ul class="nav-links">
+            <li><a href="#about" data-i18n="nav.about">À propos</a></li>
+            <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
+            <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+    <button class="lang-toggle" aria-label="Changer la langue" id="langToggle">EN</button>    </nav>
   </header>
 
   <!-- CONTENU PRINCIPAL -->
   <main>
 
     <!-- Section HERO -->
-   <!-- Section HERO -->
     <section id="hero" class="section-hero">
-    <div class="hero-container">
+    <div class="hero-content">
+  <p class="hero-greeting" data-i18n="hero.greeting">👋 Bonjour, je suis</p>
 
-        <div class="hero-content">
-        <p class="hero-greeting">👋 Bonjour, je suis</p>
+  <h1 class="hero-name">Mamadou Alpha BALDE</h1>
 
-        <h1 class="hero-name">Mamadou Alpha BALDE</h1>
+  <h2 class="hero-role" data-i18n-html="hero.role">Développeur <span class="highlight">full-stack</span> · Spécialisation <span class="highlight">DevOps</span></h2>
 
-        <h2 class="hero-role">Développeur <span class="highlight">full-stack</span> · Spécialisation <span class="highlight">DevOps</span></h2>
-                <p class="hero-tagline">
-                    Développeur <strong>full-stack</strong> passionné par les solutions web,
-                    l'<strong>automatisation</strong> et la <strong>conteneurisation Docker</strong>.
-                </p>
+  <p class="hero-tagline" data-i18n-html="hero.tagline">
+    Développeur <strong>full-stack</strong> passionné par les solutions web,
+    l'<strong>automatisation</strong> et la <strong>conteneurisation Docker</strong>.
+  </p>
 
-        <p class="hero-location">
-            📍 Dakar, Sénégal · 💼 Disponible pour collaborations
-        </p>
+  <p class="hero-location" data-i18n="hero.location">
+    📍 Dakar, Sénégal · 💼 Disponible pour collaborations
+  </p>
 
-        <div class="hero-cta">
-            <a href="#projects" class="btn btn-primary">
-            💼 Voir mes projets
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-            📧 Me contacter
-            </a>
-        </div>
-
-        </div>
-
-        <div class="hero-photo">
-        <img
-            src="https://avatars.githubusercontent.com/alpha-do-code"
-            alt="Photo de profil d'Alpha BALDE"
-            class="profile-photo"
-            width="280"
-            height="280"
-        >
-        <div class="photo-decoration"></div>
-        </div>
-
+  <div class="hero-cta">
+    <a href="#projects" class="btn btn-primary" data-i18n="hero.cta_projects">
+      💼 Voir mes projets
+    </a>
+    <a href="#contact" class="btn btn-secondary" data-i18n="hero.cta_contact">
+      📧 Me contacter
+    </a>
+  </div>
     </div>
     </section>
 

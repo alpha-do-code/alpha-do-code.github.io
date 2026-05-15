@@ -776,3 +776,31 @@ h1, h2, h3, h4 {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
 }
+
+/* ============================================ */
+/*    4. NAVIGATION ACTIVE & HEADER SCROLLED    */
+/* ============================================ */
+
+/* Lien actif dans le menu */
+.nav-links a.nav-link-active {
+  color: var(--color-primary);
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-links a.nav-link-active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Header avec ombre quand scrollé */
+.site-header.header-scrolled {
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.95);
+}
