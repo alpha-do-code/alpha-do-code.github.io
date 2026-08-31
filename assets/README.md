@@ -5,7 +5,7 @@ Fichiers statiques du portfolio.
 ## CV
 
 - **`cv-mamadou-alpha-balde.pdf`** : le CV téléchargeable. Le bouton « Télécharger le CV »
-  du hero pointe dessus. Tant que le fichier est absent, `script.js` masque le bouton.
+  du hero pointe dessus. 
 - **`cv-source.html`** : la source du PDF. Généré avec Chrome :
 
   ```
