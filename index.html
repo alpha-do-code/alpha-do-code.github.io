@@ -1,550 +1,675 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio d'Alpha (Mamadou Alpha BALDE) — Développeur en reconversion DevOps à Dakar, Sénégal.">
-  <meta name="author" content="Alpha BALDE">
-  <meta name="keywords" content="Alpha BALDE, développeur, DevOps, Sénégal, FEVEO 2050, portfolio, Dakar">
+  <meta name="description" content="Portfolio de Mamadou Alpha BALDE, développeur full stack (React, Node.js, TypeScript, MongoDB) à Thiès, Sénégal. Certifié en IA et machine learning.">
+  <meta name="author" content="Mamadou Alpha BALDE">
+  <meta name="keywords" content="Mamadou Alpha BALDE, développeur full stack, React, Node.js, TypeScript, MongoDB, IA, machine learning, Sénégal, Thiès, portfolio, freelance">
 
-  <title>Mamadou Alpha BALDE — Développeur en reconversion DevOps</title>
+  <title>Mamadou Alpha BALDE — Développeur Full Stack</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mamadou Alpha BALDE — Développeur Full Stack">
+  <meta property="og:description" content="Full stack React / Node.js / TypeScript. Je conçois et fais tourner des plateformes web transactionnelles, du front à la production.">
+  <meta property="og:locale" content="fr_SN">
+
+  <meta name="theme-color" content="#0B0F14" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
 
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css">
+
+  <script>
+    // No-FOUC : appliquer le thème enregistré avant le premier rendu
+    (function () {
+      try {
+        var saved = localStorage.getItem("theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+        var lang = localStorage.getItem("lang");
+        if (lang) document.documentElement.setAttribute("lang", lang);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
-  <!-- HEADER avec navigation -->
-  <header class="site-header">
-    <nav class="navbar">
-      <a href="#hero" class="logo">Alpha<span class="logo-dot">.</span></a>
-        <ul class="nav-links">
-            <li><a href="#about" data-i18n="nav.about">À propos</a></li>
-            <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
-            <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
-            <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-    <button class="lang-toggle" aria-label="Changer la langue" id="langToggle">EN</button>    </nav>
+  <!-- ============================================================
+       JEU D'ICÔNES SVG (style trait, cohérent sur tout le site)
+       ============================================================ -->
+  <svg width="0" height="0" class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.477-.995v-.32zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.148-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.297-.347.446-.520.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.500-.669-.510l-.57-.010c-.198 0-.520.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-smartphone" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.92a1 1 0 0 0-.02-1.84L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.83l8.57 3.91a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-badge-check" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
+    <symbol id="i-git-branch" viewBox="0 0 24 24"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/></symbol>
+  </svg>
+
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
+
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-wrap">
+      <a href="#top" class="logo" aria-label="Mamadou Alpha BALDE, accueil">
+        <span class="logo-mark">MA</span>
+        <span class="logo-word">Mamadou&nbsp;Alpha</span>
+      </a>
+
+      <nav class="nav" id="primaryNav" aria-label="Navigation principale">
+        <a href="#about" data-i18n="nav.about">À propos</a>
+        <a href="#stack" data-i18n="nav.stack">Stack</a>
+        <a href="#projects" data-i18n="nav.projects">Projets</a>
+        <a href="#path" data-i18n="nav.path">Parcours</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="langToggle" type="button" aria-label="Switch to English" title="English">
+          <span class="lang-label">EN</span>
+        </button>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Changer de thème" title="Changer de thème">
+          <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn nav-burger" id="navBurger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="primaryNav">
+          <svg class="icon icon-menu"><use href="#i-menu"/></svg>
+          <svg class="icon icon-close"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <!-- CONTENU PRINCIPAL -->
-  <main>
+  <span id="top"></span>
 
-    <!-- Section HERO -->
-    <section id="hero" class="section-hero">
-    <div class="hero-content">
-  <p class="hero-greeting" data-i18n="hero.greeting">👋 Bonjour, je suis</p>
+  <main id="main">
 
-  <h1 class="hero-name">Mamadou Alpha BALDE</h1>
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+      </div>
 
-  <h2 class="hero-role" data-i18n-html="hero.role">Développeur <span class="highlight">full-stack</span> · Spécialisation <span class="highlight">DevOps</span></h2>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">
+            <svg class="icon"><use href="#i-map-pin"/></svg>
+            <span data-i18n="hero.eyebrow">Développeur Full Stack · Thiès, Sénégal</span>
+          </p>
 
-  <p class="hero-tagline" data-i18n-html="hero.tagline">
-    Développeur <strong>full-stack</strong> passionné par les solutions web,
-    l'<strong>automatisation</strong> et la <strong>conteneurisation Docker</strong>.
-  </p>
+          <h1 class="hero-title reveal">Mamadou Alpha <span class="grad">BALDE</span></h1>
 
-  <p class="hero-location" data-i18n="hero.location">
-    📍 Dakar, Sénégal · 💼 Disponible pour collaborations
-  </p>
+          <p class="hero-lead reveal" data-i18n="hero.lead">
+            Je conçois et fais tourner des plateformes web transactionnelles,
+            du front à la production.
+          </p>
 
-  <div class="hero-cta">
-    <a href="#projects" class="btn btn-primary" data-i18n="hero.cta_projects">
-      💼 Voir mes projets
-    </a>
-    <a href="#contact" class="btn btn-secondary" data-i18n="hero.cta_contact">
-      📧 Me contacter
-    </a>
-  </div>
-    </div>
+          <p class="hero-sub reveal" data-i18n-html="hero.sub">
+            Full stack <strong>React</strong> / <strong>Node.js</strong> / <strong>TypeScript</strong>
+            chez FEVEO 2050. Certifié en <strong>intelligence artificielle et machine learning</strong>,
+            je fais évoluer ce socle vers les systèmes intelligents appliqués à la finance numérique.
+          </p>
+
+          <div class="hero-cta reveal">
+            <a href="#projects" class="btn btn-primary">
+              <span data-i18n="hero.cta_projects">Voir les projets</span>
+              <svg class="icon"><use href="#i-arrow-down"/></svg>
+            </a>
+            <a href="assets/cv-mamadou-alpha-balde.pdf" class="btn btn-ghost" id="cvLink" download>
+              <svg class="icon"><use href="#i-download"/></svg>
+              <span data-i18n="hero.cta_cv">Télécharger le CV</span>
+            </a>
+            <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="btn btn-ghost">
+              <svg class="icon"><use href="#i-github"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <p class="hero-availability reveal">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero.availability">Disponible pour des missions freelance et des opportunités en CDD</span>
+          </p>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="code-card">
+            <div class="code-card-bar">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="code-card-file">profil.ts</span>
+            </div>
+            <pre class="code-card-body"><code><span class="c-key">const</span> <span class="c-var">alpha</span> = {
+  <span class="c-prop">role</span>: <span class="c-str">"Développeur Full Stack"</span>,
+  <span class="c-prop">stack</span>: [<span class="c-str">"React"</span>, <span class="c-str">"Node"</span>, <span class="c-str">"TS"</span>, <span class="c-str">"Mongo"</span>],
+  <span class="c-prop">focus</span>: <span class="c-str">"IA · finance numérique"</span>,
+  <span class="c-prop">city</span>: <span class="c-str">"Thiès, Sénégal"</span>,
+  <span class="c-prop">open</span>: <span class="c-bool">true</span>,
+};</code></pre>
+          </div>
+          <div class="float-chip chip-1">React</div>
+          <div class="float-chip chip-2">Node.js</div>
+          <div class="float-chip chip-3">TypeScript</div>
+          <div class="float-chip chip-4">MongoDB</div>
+        </div>
+      </div>
     </section>
 
-    
-    <!-- Section ABOUT -->
-    <section id="about" class="section-about">
-    <div class="about-container">
-
-        <header class="section-header">
-        <h2 class="section-title">À propos</h2>
-        <p class="section-subtitle">Mon parcours, ma mission</p>
-        </header>
-
-        <div class="about-content">
-
-        <div class="about-visual">
-            <div class="about-card">
-            <span class="about-emoji">🎓</span>
-            <p class="about-card-text">
-                <strong>Licence Génie Logiciel</strong><br>
-                Université IBA DER THIAM<br>
-                <em>Thiès, 2022-2025</em>
-            </p>
-            </div>
-            <div class="about-card">
-            <span class="about-emoji">🇸🇳</span>
-            <p class="about-card-text">
-                <strong>Keur Massar, Dakar</strong><br>
-                Sénégal
-            </p>
-            </div>
+    <!-- ============================== STATS ============================== -->
+    <section class="stats" aria-label="Chiffres clés">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <span class="stat-num">Bac+3</span>
+          <span class="stat-label" data-i18n="stats.degree">Licence en Génie Logiciel</span>
         </div>
-
-        <div class="about-text">
-            <p>
-            Je suis <strong>Mamadou Alpha BALDE</strong>, <strong>diplômé en Génie Logiciel</strong>
-            (Licence, Université IBA DER THIAM) qui se <strong>spécialise en DevOps</strong>.
-            Je code en <strong>Python</strong>, <strong>JavaScript/Node.js</strong>,
-            <strong>Java</strong>, <strong>PHP</strong>, et je travaille avec
-            <strong>Angular</strong>, <strong>Laravel</strong>, et <strong>Flutter</strong>.
-            </p>
-
-            <p>
-            Actuellement chez <strong>FEVEO 2050 SAS</strong>, j'automatise des
-            workflows administratifs avec <strong>n8n</strong> et je développe le
-            backend de la plateforme de gestion des GIE (Groupements d'Intérêt
-            Économique) qui soutient l'autonomisation économique des femmes au
-            Sénégal.
-            </p>
-
-            <p>
-            J'ai déjà touché <strong>Ansible</strong> sur un projet universitaire de
-            déploiement de configuration, et je suis maintenant un
-            <strong>roadmap structuré de 26 semaines</strong> pour aller plus loin :
-            conteneurisation Docker, CI/CD GitHub Actions, cloud (DigitalOcean,
-            Azure), Kubernetes et observabilité (Datadog). Ce portfolio documente
-            ce parcours.
-            </p>
+        <div class="stat reveal">
+          <span class="stat-num">2025</span>
+          <span class="stat-label" data-i18n="stats.job">Full stack en poste chez FEVEO 2050</span>
         </div>
-
+        <div class="stat reveal">
+          <span class="stat-num">1</span>
+          <span class="stat-label" data-i18n="stats.prod">E-commerce mené seul jusqu'en production</span>
         </div>
-
-        <div class="about-stats">
-        <div class="stat-card">
-            <span class="stat-number">Bac+3</span>
-            <span class="stat-label">Licence Génie Logiciel</span>
+        <div class="stat reveal">
+          <span class="stat-num">4</span>
+          <span class="stat-label" data-i18n="stats.certs">Certifications, dont IA &amp; machine learning</span>
         </div>
-        <div class="stat-card">
-            <span class="stat-number">3+</span>
-            <span class="stat-label">Certifications obtenues</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-number">8+</span>
-            <span class="stat-label">Projets construits</span>
-        </div>
-        <div class="stat-card">
-            <span class="stat-number">26</span>
-            <span class="stat-label">Semaines de roadmap DevOps</span>
-        </div>
-        </div>
-
-    </div>
+      </div>
     </section>
 
-    <!-- Section SKILLS -->
-    <section id="skills" class="section-skills">
-    <div class="skills-container">
-
-        <header class="section-header">
-        <h2 class="section-title">Compétences</h2>
-        <p class="section-subtitle">Ma stack technique complète</p>
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker"><span>01</span><span data-i18n="about.kicker">À propos</span></p>
+          <h2 class="section-title" data-i18n="about.title">Un socle génie logiciel, une trajectoire vers l'IA</h2>
         </header>
 
-        <div class="skills-grid">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-i18n="about.p1">
+              Je suis développeur full stack, titulaire d'une Licence en Génie Logiciel
+              de l'Université Iba Der Thiam de Thiès.
+              Depuis novembre 2025, j'exerce chez <strong>FEVEO 2050 SAS</strong>, où je développe
+              et maintiens un écosystème de plateformes transactionnelles destinées à une
+              communauté de membres : marketplace, portefeuille électronique, formation en
+              ligne et espace communautaire.
+            </p>
+            <p data-i18n="about.p2">
+              Je fais partie des développeurs permanents d'une équipe. J'ai livré
+              la première version de la plateforme communautaire, j'assure le suivi de
+              l'ensemble des plateformes en production et je corrige les incidents remontés
+              directement par les utilisatrices, du diagnostic jusqu'au correctif.
+            </p>
+            <p data-i18n="about.p3">
+              Certifié en intelligence artificielle et machine learning, je veux prolonger ce
+              socle vers la conception de systèmes intelligents appliqués à la finance
+              numérique, en gardant les deux pieds dans le développement.
+            </p>
+          </div>
 
-        <!-- Catégorie 1 : Frontend & Web -->
-        <article class="skill-category">
-            <div class="skill-icon">🎨</div>
-            <h3 class="skill-title">Frontend &amp; Web</h3>
-            <ul class="skill-list">
-            <li>HTML5 &amp; CSS3 <span class="skill-tag tag-strong">solide</span></li>
-            <li>JavaScript (ES6+) <span class="skill-tag tag-strong">solide</span></li>
-            <li>Angular</li>
-            <li>React <span class="skill-tag">en cours</span></li>
-            </ul>
-        </article>
-
-        <!-- Catégorie 2 : Backend -->
-        <article class="skill-category">
-            <div class="skill-icon">⚙️</div>
-            <h3 class="skill-title">Backend</h3>
-            <ul class="skill-list">
-            <li>Python <span class="skill-tag tag-strong">certifié</span></li>
-            <li>Java</li>
-            <li>PHP / Laravel</li>
-            <li>Node.js / Express <span class="skill-tag">en cours</span></li>
-            <li>MySQL</li>
-            <li>MongoDB <span class="skill-tag">en cours</span></li>
-            </ul>
-        </article>
-
-        <!-- Catégorie 3 : Mobile -->
-        <article class="skill-category">
-            <div class="skill-icon">📱</div>
-            <h3 class="skill-title">Mobile &amp; Desktop</h3>
-            <ul class="skill-list">
-            <li>Flutter</li>
-            <li>Python PyQt6 (desktop)</li>
-            <li>React Native <span class="skill-tag">en cours</span></li>
-            </ul>
-        </article>
-
-        <!-- Catégorie 4 : DevOps & Outils -->
-        <article class="skill-category">
-            <div class="skill-icon">🐳</div>
-            <h3 class="skill-title">DevOps &amp; Outils</h3>
-            <ul class="skill-list">
-            <li>Git / GitHub <span class="skill-tag tag-strong">solide</span></li>
-            <li>Docker / Docker Compose <span class="skill-tag tag-strong">solide</span></li>
-            <li>Ansible <span class="skill-tag tag-strong">projet déployé</span></li>
-            <li>Linux / WSL2</li>
-            <li>GitHub Actions <span class="skill-tag">en cours</span></li>
-            </ul>
-        </article>
-
-        <!-- Catégorie 5 : Automatisation -->
-        <article class="skill-category">
-            <div class="skill-icon">🤖</div>
-            <h3 class="skill-title">Automatisation &amp; IA</h3>
-            <ul class="skill-list">
-            <li>n8n <span class="skill-tag tag-strong">avancé</span></li>
-            <li>WeasyPrint (PDF)</li>
-            <li>Scripts Python d'automatisation</li>
-            <li>Machine Learning <span class="skill-tag tag-strong">certifié</span></li>
-            </ul>
-        </article>
-
-        <!-- Catégorie 6 : Langues -->
-        <article class="skill-category">
-            <div class="skill-icon">🌍</div>
-            <h3 class="skill-title">Langues</h3>
-            <ul class="skill-list">
-            <li>Français <span class="skill-tag tag-strong">courant</span></li>
-            <li>Wolof <span class="skill-tag tag-strong">natif</span></li>
-            <li>Pulaar <span class="skill-tag tag-strong">natif</span></li>
-            <li>Anglais <span class="skill-tag">basique</span></li>
-            </ul>
-        </article>
-
+          <ul class="about-cards reveal">
+            <li class="about-card">
+              <svg class="icon"><use href="#i-cap"/></svg>
+              <div>
+                <strong data-i18n="about.card_edu_t">Licence Génie Logiciel</strong>
+                <span data-i18n="about.card_edu_d">UIDT Thiès · 2022-2025</span>
+              </div>
+            </li>
+            <li class="about-card">
+              <svg class="icon"><use href="#i-map-pin"/></svg>
+              <div>
+                <strong data-i18n="about.card_loc_t">Thiès, Sénégal</strong>
+                <span data-i18n="about.card_loc_d">Originaire de Dakar · fuseau UTC+0</span>
+              </div>
+            </li>
+            <li class="about-card">
+              <svg class="icon"><use href="#i-globe"/></svg>
+              <div>
+                <strong data-i18n="about.card_lang_t">Français, Anglais, Wolof, Pulaar</strong>
+                <span data-i18n="about.card_lang_d">Anglais : bon niveau académique, doc technique</span>
+              </div>
+            </li>
+            <li class="about-card">
+              <svg class="icon"><use href="#i-sparkles"/></svg>
+              <div>
+                <strong data-i18n="about.card_ai_t">Cap IA &amp; data</strong>
+                <span data-i18n="about.card_ai_d">Certifié Force-N · veille active · master visé</span>
+              </div>
+            </li>
+          </ul>
         </div>
-
-        <!-- Certifications -->
-        <div class="certifications-block">
-        <h3 class="cert-title">🏆 Certifications obtenues</h3>
-        <div class="cert-grid">
-            <div class="cert-card">
-            <span class="cert-icon">🐍</span>
-            <div class="cert-info">
-                <strong>Python 3</strong>
-                <span>CISCO + OpenEDG · Juillet 2024</span>
-            </div>
-            </div>
-            <div class="cert-card">
-            <span class="cert-icon">🤖</span>
-            <div class="cert-info">
-                <strong>AI &amp; Machine Learning</strong>
-                <span>Force-n · 2024-2025</span>
-            </div>
-            </div>
-            <div class="cert-card">
-            <span class="cert-icon">💼</span>
-            <div class="cert-info">
-                <strong>Career Management</strong>
-                <span>Force-n · Janvier 2024</span>
-            </div>
-            </div>
-        </div>
-        </div>
-
-        <!-- Roadmap : compétences à venir -->
-        <div class="skills-roadmap">
-        <h3 class="roadmap-title">📚 Bientôt dans ma stack</h3>
-        <div class="roadmap-tags">
-            <span class="roadmap-tag">Appwrite</span>
-            <span class="roadmap-tag">Terraform</span>
-            <span class="roadmap-tag">Kubernetes</span>
-            <span class="roadmap-tag">Helm</span>
-            <span class="roadmap-tag">ArgoCD</span>
-            <span class="roadmap-tag">Datadog</span>
-            <span class="roadmap-tag">DigitalOcean</span>
-            <span class="roadmap-tag">Azure</span>
-        </div>
-        </div>
-
-    </div>
+      </div>
     </section>
 
-  <!-- Section PROJECTS -->
-    <section id="projects" class="section-projects">
-    <div class="projects-container">
-
-        <header class="section-header">
-        <h2 class="section-title">Projets</h2>
-        <p class="section-subtitle">Une sélection de mes réalisations techniques</p>
+    <!-- ============================== STACK ============================== -->
+    <section class="section section-alt" id="stack">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker"><span>02</span><span data-i18n="stack.kicker">Stack technique</span></p>
+          <h2 class="section-title" data-i18n="stack.title">Ce avec quoi je construis</h2>
+          <p class="section-desc" data-i18n="stack.desc">
+            Mon socle de production est en gras. Le reste, je l'ai pratiqué en projet
+            académique, personnel ou en apprentissage continu.
+          </p>
         </header>
 
-        <div class="projects-grid">
+        <div class="stack-grid">
+          <article class="stack-card reveal">
+            <div class="stack-card-head"><svg class="icon"><use href="#i-code"/></svg><h3 data-i18n="stack.front">Front-end</h3></div>
+            <ul class="chips">
+              <li class="chip chip-core">React</li>
+              <li class="chip">Next.js</li>
+              <li class="chip">Vite</li>
+              <li class="chip">Tailwind CSS</li>
+              <li class="chip">Angular</li>
+              <li class="chip">HTML5 / CSS3</li>
+            </ul>
+          </article>
 
-        <!-- Projet 1 : FEVEO Backend Demo ⭐ -->
-        <article class="project-card project-featured">
-            <div class="project-visual">
-            <span class="project-emoji">🌍</span>
-            </div>
-            <div class="project-badge">⭐ Vedette</div>
-            <div class="project-content">
-            <h3 class="project-title">FEVEO Backend Demo</h3>
-            <p class="project-description">
-                API REST de démonstration pour la gestion des Groupements d'Intérêt Économique (GIE) au Sénégal.
-                README professionnel complet, cycle Git pro (Conventional Commits + Squash & Merge).
-            </p>
-            <div class="project-tags">
-                <span class="tag">Node.js</span>
-                <span class="tag">Express</span>
-                <span class="tag">MongoDB</span>
-                <span class="tag">Docker</span>
-                <span class="tag">DevOps</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/alpha-do-code/feveo-backend-demo" target="_blank" rel="noopener" class="project-link">
-                🔗 Code GitHub
-                </a>
-                <a href="https://github.com/alpha-do-code/feveo-backend-demo#readme" target="_blank" rel="noopener" class="project-link">
-                📄 README pro
-                </a>
-            </div>
-            </div>
-        </article>
+          <article class="stack-card reveal">
+            <div class="stack-card-head"><svg class="icon"><use href="#i-server"/></svg><h3 data-i18n="stack.back">Back-end</h3></div>
+            <ul class="chips">
+              <li class="chip chip-core">Node.js</li>
+              <li class="chip chip-core">Express</li>
+              <li class="chip chip-core">TypeScript</li>
+              <li class="chip">API REST</li>
+              <li class="chip">JWT</li>
+              <li class="chip">Laravel</li>
+            </ul>
+          </article>
 
-        <!-- Projet 2 : Ansible ⭐ -->
-        <article class="project-card project-featured">
-            <div class="project-visual">
-            <span class="project-emoji">⚙️</span>
-            </div>
-            <div class="project-badge">⭐ Vedette</div>
-            <div class="project-content">
-            <h3 class="project-title">Déploiement automatisé avec Ansible</h3>
-            <p class="project-description">
-                Projet opérationnel universitaire : système de gestion de configuration multi-serveurs avec Ansible.
-                Playbooks réutilisables, inventaire dynamique, rôles modulaires.
-            </p>
-            <div class="project-tags">
-                <span class="tag">Ansible</span>
-                <span class="tag">Linux</span>
-                <span class="tag">YAML</span>
-                <span class="tag">Configuration as Code</span>
-            </div>
-            <div class="project-links">
-                <span class="project-link project-link-disabled">
-                🎓 Projet académique
-                </span>
-            </div>
-            </div>
-        </article>
+          <article class="stack-card reveal">
+            <div class="stack-card-head"><svg class="icon"><use href="#i-database"/></svg><h3 data-i18n="stack.data">Bases de données</h3></div>
+            <ul class="chips">
+              <li class="chip chip-core">MongoDB</li>
+              <li class="chip">PostgreSQL</li>
+              <li class="chip">PostGIS</li>
+              <li class="chip">MySQL</li>
+            </ul>
+          </article>
 
-        <!-- Projet 3 : Sen Vaisselle -->
-        <article class="project-card">
-            <div class="project-visual">
-            <span class="project-emoji">🍽️</span>
-            </div>
-            <div class="project-content">
-            <h3 class="project-title">Sen Vaisselle</h3>
-            <p class="project-description">
-                Application desktop de gestion de stock avec suivi des ventes, bilans automatisés et interface intuitive.
-                Pensée pour les commerces traditionnels au Sénégal.
-            </p>
-            <div class="project-tags">
-                <span class="tag">Python</span>
-                <span class="tag">PyQt6</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">Desktop App</span>
-            </div>
-            <div class="project-links">
-                <span class="project-link project-link-disabled">
-                💼 Projet personnel
-                </span>
-            </div>
-            </div>
-        </article>
+          <article class="stack-card reveal">
+            <div class="stack-card-head"><svg class="icon"><use href="#i-smartphone"/></svg><h3 data-i18n="stack.mobile">Mobile &amp; desktop</h3></div>
+            <ul class="chips">
+              <li class="chip">Flutter</li>
+              <li class="chip">PyQt6</li>
+              <li class="chip">Tkinter</li>
+            </ul>
+          </article>
 
-        <!-- Projet 4 : App Gestion Événements -->
-        <article class="project-card">
-            <div class="project-visual">
-            <span class="project-emoji">🎉</span>
-            </div>
-            <div class="project-content">
-            <h3 class="project-title">Plateforme de gestion d'événements</h3>
-            <p class="project-description">
-                Application web full-stack pour la gestion d'événements : création, inscriptions, paiements, billetterie.
-                Architecture moderne avec front Angular et API Laravel.
-            </p>
-            <div class="project-tags">
-                <span class="tag">Angular</span>
-                <span class="tag">Laravel</span>
-                <span class="tag">PHP</span>
-                <span class="tag">MySQL</span>
-            </div>
-            <div class="project-links">
-                <span class="project-link project-link-disabled">
-                🎓 Projet académique
-                </span>
-            </div>
-            </div>
-        </article>
+          <article class="stack-card reveal">
+            <div class="stack-card-head"><svg class="icon"><use href="#i-wrench"/></svg><h3 data-i18n="stack.ops">Déploiement &amp; outils</h3></div>
+            <ul class="chips">
+              <li class="chip chip-core">Git / GitHub</li>
+              <li class="chip">GitHub Actions</li>
+              <li class="chip">Vercel</li>
+              <li class="chip">Render</li>
+              <li class="chip">MongoDB Atlas</li>
+              <li class="chip">Cloudinary</li>
+              <li class="chip">Docker (notions)</li>
+              <li class="chip">Ansible</li>
+            </ul>
+          </article>
 
-        <!-- Projet 5 : Système n8n FEVEO -->
-        <article class="project-card">
-            <div class="project-visual">
-            <span class="project-emoji">🤖</span>
-            </div>
-            <div class="project-content">
-            <h3 class="project-title">Automatisation n8n — FEVEO 2050</h3>
-            <p class="project-description">
-                Workflows n8n pour la génération automatique de lettres de motivation PDF pour les Points Focaux FEVEO.
-                Intégration WeasyPrint, déployé en production via Docker.
-            </p>
-            <div class="project-tags">
-                <span class="tag">n8n</span>
-                <span class="tag">Docker</span>
-                <span class="tag">WeasyPrint</span>
-                <span class="tag">Automation</span>
-            </div>
-            <div class="project-links">
-                <span class="project-link project-link-disabled">
-                💼 Projet pro FEVEO
-                </span>
-            </div>
-            </div>
-        </article>
-
-        <!-- Projet 6 : App Parrainages -->
-        <article class="project-card">
-            <div class="project-visual">
-            <span class="project-emoji">🤝</span>
-            </div>
-            <div class="project-content">
-            <h3 class="project-title">Gestion des parrainages électoraux</h3>
-            <p class="project-description">
-                Application web pour la gestion et la validation des parrainages au Sénégal.
-                Interface utilisateur claire, workflows de validation, conformité réglementaire.
-            </p>
-            <div class="project-tags">
-                <span class="tag">HTML5</span>
-                <span class="tag">CSS3</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">UX</span>
-            </div>
-            <div class="project-links">
-                <span class="project-link project-link-disabled">
-                🎓 Projet académique
-                </span>
-            </div>
-            </div>
-        </article>
-
+          <article class="stack-card reveal">
+            <div class="stack-card-head"><svg class="icon"><use href="#i-cpu"/></svg><h3 data-i18n="stack.ai">IA &amp; data</h3></div>
+            <ul class="chips">
+              <li class="chip">Machine learning (certifié)</li>
+              <li class="chip">Python</li>
+              <li class="chip">Analyse de données</li>
+              <li class="chip chip-soon" data-i18n="stack.deepening">en approfondissement</li>
+            </ul>
+          </article>
         </div>
 
-        <!-- Lien GitHub global -->
-        <div class="projects-footer">
-        <p>Découvrez tous mes projets sur GitHub :</p>
-        <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="btn btn-secondary">
-            🔗 Voir mon profil GitHub
-        </a>
-        </div>
-
-    </div>
-    </section>
-
-    <!-- Section CONTACT -->
-    <section id="contact" class="section-contact">
-    <div class="contact-container">
-
-        <header class="section-header">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-subtitle">Travaillons ensemble sur votre prochain projet</p>
-        </header>
-
-        <div class="contact-intro">
-        <p>
-            Je suis <strong>disponible pour des collaborations</strong> : missions DevOps,
-            développement full-stack, automatisation de workflows, ou consultance technique.
-            N'hésitez pas à me contacter — je réponds sous 24h.
+        <p class="stack-langs reveal">
+          <span data-i18n="stack.langs_label">Langages :</span>
+          JavaScript · TypeScript · Python · Java · PHP · Dart · C
         </p>
+      </div>
+    </section>
+
+    <!-- ============================== PROJECTS ============================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker"><span>03</span><span data-i18n="projects.kicker">Projets</span></p>
+          <h2 class="section-title" data-i18n="projects.title">Des choses livrées, pas seulement commencées</h2>
+        </header>
+
+        <div class="projects">
+
+          <!-- GayeTech Store -->
+          <article class="project project-feature reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-bag"/></svg>
+              <span class="project-status status-live">
+                <span class="pulse-dot pulse-dot-sm"></span>
+                <span data-i18n="projects.live">En production</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">GayeTech Store</h3>
+              <p class="project-role" data-i18n="projects.gaye_role">E-commerce · projet mené seul, conception à mise en production · 2026</p>
+              <p class="project-desc" data-i18n="projects.gaye_desc">
+                Boutique en ligne complète. Architecture client / serveur : React + Vite côté
+                interface, Node.js + Express + TypeScript côté API, MongoDB en base. Mise en
+                production d'une architecture multi-services sans budget d'hébergement
+                (Vercel, Render, MongoDB Atlas, Cloudinary). Sécurité : JWT, bcrypt, Helmet,
+                limitation de débit.
+              </p>
+              <p class="project-note" data-i18n="projects.gaye_note">
+                <svg class="icon"><use href="#i-dot"/></svg>
+                Paiement mobile Wave en cours d'intégration, désactivé côté interface tant
+                qu'il n'est pas opérationnel.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">React</li><li class="chip">Vite</li><li class="chip">TypeScript</li>
+                <li class="chip">Node.js</li><li class="chip">Express</li><li class="chip">MongoDB</li><li class="chip">JWT</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://gayetech-store.vercel.app/" target="_blank" rel="noopener" class="plink plink-primary">
+                  <svg class="icon"><use href="#i-external"/></svg><span data-i18n="projects.demo">Démo en ligne</span>
+                </a>
+                <a href="https://github.com/alpha-balde-feveo/ElectroShop" target="_blank" rel="noopener" class="plink">
+                  <svg class="icon"><use href="#i-github"/></svg><span data-i18n="projects.code">Code source</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Plateforme communautaire FEVEO -->
+          <article class="project project-feature reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-users"/></svg>
+              <span class="project-status status-work">
+                <svg class="icon"><use href="#i-briefcase"/></svg>
+                <span data-i18n="projects.company">Projet en entreprise</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title" data-i18n="projects.comm_title">Plateforme communautaire — FEVEO 2050</h3>
+              <p class="project-role" data-i18n="projects.comm_role">Contribution au front-end et à l'API · v1 livrée · 2026</p>
+              <p class="project-desc" data-i18n="projects.comm_desc">
+                Première version d'un espace communautaire et de messagerie pour une
+                communauté de membres en inclusion financière, conçu pour s'intégrer au
+                portefeuille électronique du groupe. Contribution au front et à l'API,
+                puis suivi en production et correction des incidents utilisatrices.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">React</li><li class="chip">Node.js</li><li class="chip">Express</li>
+                <li class="chip">TypeScript</li><li class="chip">MongoDB</li>
+              </ul>
+              <div class="project-links">
+                <span class="plink plink-muted">
+                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.internal">Code interne, non public</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Ndimbeul -->
+          <article class="project reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-route"/></svg>
+              <span class="project-status status-wip">
+                <svg class="icon"><use href="#i-git-branch"/></svg>
+                <span data-i18n="projects.wip">En développement</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Ndimbeul</h3>
+              <p class="project-role" data-i18n="projects.ndim_role">Application de mobilité urbaine · projet personnel</p>
+              <p class="project-desc" data-i18n="projects.ndim_desc">
+                Aide au déplacement sur le réseau de bus TATA AFTU de Dakar : recherche
+                d'itinéraire, tarif section par section, mode hors-ligne. Mobile en Flutter,
+                API Node.js + Express avec PostgreSQL et PostGIS, cartographie OpenStreetMap
+                sans clé propriétaire.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">Flutter</li><li class="chip">Node.js</li><li class="chip">Express</li>
+                <li class="chip">PostgreSQL</li><li class="chip">PostGIS</li>
+              </ul>
+              <div class="project-links">
+                <span class="plink plink-muted">
+                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_soon">Repo bientôt public</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Tailleur Pro -->
+          <article class="project reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-scissors"/></svg>
+              <span class="project-status status-work">
+                <svg class="icon"><use href="#i-smartphone"/></svg>
+                <span data-i18n="projects.multiplatform">Android &amp; iOS</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Tailleur Pro</h3>
+              <p class="project-role" data-i18n="projects.tail_role">Gestion d'atelier de couture · projet personnel</p>
+              <p class="project-desc" data-i18n="projects.tail_desc">
+                Application de gestion pour ateliers de couture : fiches clients, commandes,
+                mesures, modèles, factures et abonnements. Entièrement locale (SQLite,
+                Provider), sans backend. Portée sur Android et iOS, avec intégration
+                continue GitHub Actions et tests d'intégration.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">Flutter</li><li class="chip">Dart</li><li class="chip">SQLite</li>
+                <li class="chip">Provider</li><li class="chip">GitHub Actions</li>
+              </ul>
+              <div class="project-links">
+                <span class="plink plink-muted">
+                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_private">Repo privé</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
         </div>
 
-        <div class="contact-grid">
+        <div class="more-projects reveal">
+          <h3 data-i18n="projects.more_title">Autres réalisations</h3>
+          <ul>
+            <li>
+              <strong data-i18n="projects.more_parr_t">Gestion des parrainages au Sénégal</strong>
+              <span data-i18n="projects.more_parr">Workflows de validation des parrainages. Version d'origine en HTML/CSS/JS, refonte en cours sous Next.js.</span>
+              <span class="tech">Next.js · TypeScript</span>
+            </li>
+            <li>
+              <strong>Sen Vaisselle</strong>
+              <span data-i18n="projects.more_sen">Application de gestion de stock sur poste de travail, suivi des ventes et bilans automatisés.</span>
+              <span class="tech">Python · PyQt6 · MySQL</span>
+            </li>
+            <li>
+              <strong data-i18n="projects.more_bfem_t">Délibération des candidats au BFEM</strong>
+              <span data-i18n="projects.more_bfem">Gestion des données et délibération des candidats à l'examen du BFEM au Sénégal.</span>
+              <span class="tech">Python · Tkinter</span>
+            </li>
+            <li>
+              <strong data-i18n="projects.more_evt_t">Plateforme de gestion d'événements</strong>
+              <span data-i18n="projects.more_evt">Création d'événements, inscriptions, billetterie. Projet académique full stack.</span>
+              <span class="tech">Angular · Laravel · MySQL</span>
+            </li>
+            <li>
+              <strong data-i18n="projects.more_ansible_t">Déploiement de configuration multi-serveurs</strong>
+              <span data-i18n="projects.more_ansible">Système de gestion de configuration, playbooks réutilisables, rôles modulaires.</span>
+              <span class="tech">Ansible · Linux · YAML</span>
+            </li>
+          </ul>
+          <div class="more-links">
+            <a href="https://github.com/alpha-balde-feveo" target="_blank" rel="noopener" class="plink">
+              <svg class="icon"><use href="#i-github"/></svg><span>@alpha-balde-feveo</span>
+            </a>
+            <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="plink">
+              <svg class="icon"><use href="#i-github"/></svg><span>@alpha-do-code</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Email -->
-        <a href="mailto:alphab045@gmail.com" class="contact-card">
-            <span class="contact-icon">📧</span>
-            <div class="contact-info">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">alphab045@gmail.com</span>
-            </div>
-        </a>
+    <!-- ============================== PATH ============================== -->
+    <section class="section section-alt" id="path">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker"><span>04</span><span data-i18n="path.kicker">Parcours &amp; certifications</span></p>
+          <h2 class="section-title" data-i18n="path.title">Formation et titres</h2>
+        </header>
 
-        <!-- Téléphone -->
-        <a href="tel:+221770103377" class="contact-card">
-            <span class="contact-icon">📞</span>
-            <div class="contact-info">
-            <span class="contact-label">Téléphone</span>
-            <span class="contact-value">+221 77 010 33 77</span>
-            </div>
-        </a>
+        <div class="path-grid">
+          <ol class="timeline reveal">
+            <li class="tl-item">
+              <span class="tl-dot"></span>
+              <span class="tl-date">2022 – 2025</span>
+              <h3 class="tl-title" data-i18n="path.lic_t">Licence en Informatique, spécialité Génie Logiciel</h3>
+              <p class="tl-org">Université Iba Der Thiam de Thiès (UIDT) · UFR Sciences et Technologie</p>
+              <p class="tl-detail" data-i18n="path.lic_d">
+                Conception logicielle, bases de données, développement web et mobile.
+              </p>
+            </li>
+            <li class="tl-item">
+              <span class="tl-dot"></span>
+              <span class="tl-date">2021</span>
+              <h3 class="tl-title" data-i18n="path.bac_t">Baccalauréat scientifique, série S2</h3>
+              <p class="tl-org">École Privée Kabuka, Dakar</p>
+            </li>
+          </ol>
 
-        <!-- GitHub -->
-        <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-icon">🐙</span>
-            <div class="contact-info">
-            <span class="contact-label">GitHub</span>
-            <span class="contact-value">@alpha-do-code</span>
-            </div>
-        </a>
+          <div class="certs reveal">
+            <h3 class="certs-title" data-i18n="path.certs_title">Certifications</h3>
+            <ul class="cert-list">
+              <li class="cert cert-hl">
+                <svg class="icon"><use href="#i-sparkles"/></svg>
+                <div>
+                  <strong>Artificial Intelligence and Machine Learning</strong>
+                  <span>Force-N · Université Numérique Cheikh Hamidou Kane · 2024-2025</span>
+                </div>
+              </li>
+              <li class="cert">
+                <svg class="icon"><use href="#i-badge-check"/></svg>
+                <div>
+                  <strong>Python 3</strong>
+                  <span>Cisco Networking Academy avec OpenEDG Python Institute · juillet 2024</span>
+                </div>
+              </li>
+              <li class="cert">
+                <svg class="icon"><use href="#i-badge-check"/></svg>
+                <div>
+                  <strong>Artificial Intelligence for Everyone</strong>
+                  <span>Force-N · Université Numérique Cheikh Hamidou Kane · août 2024</span>
+                </div>
+              </li>
+              <li class="cert">
+                <svg class="icon"><use href="#i-badge-check"/></svg>
+                <div>
+                  <strong>Career Management</strong>
+                  <span>Force-N · Université Numérique Cheikh Hamidou Kane · janvier 2024</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- LinkedIn -->
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-icon">💼</span>
-            <div class="contact-info">
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">Mamadou Alpha BALDE</span>
-            </div>
-        </a>
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker"><span>05</span><span data-i18n="contact.kicker">Contact</span></p>
+          <h2 class="section-title" data-i18n="contact.title">Parlons de votre projet</h2>
+          <p class="section-desc" data-i18n="contact.desc">
+            Ouvert aux missions freelance, aux opportunités en CDD et aux collaborations
+            techniques. Je réponds sous 24 h.
+          </p>
+        </header>
 
-        <!-- WhatsApp -->
-        <a href="https://wa.me/221770103377" target="_blank" rel="noopener" class="contact-card">
-            <span class="contact-icon">💬</span>
-            <div class="contact-info">
-            <span class="contact-label">WhatsApp</span>
-            <span class="contact-value">+221 77 010 33 77</span>
-            </div>
-        </a>
-
-        <!-- Localisation -->
-        <div class="contact-card contact-card-info">
-            <span class="contact-icon">📍</span>
-            <div class="contact-info">
-            <span class="contact-label">Localisation</span>
-            <span class="contact-value">Keur Massar, Dakar · Sénégal 🇸🇳</span>
-            </div>
+        <div class="contact-grid reveal">
+          <a href="mailto:alphab045@gmail.com" class="contact-card">
+            <svg class="icon"><use href="#i-mail"/></svg>
+            <div><span class="contact-label">Email</span><span class="contact-value">alphab045@gmail.com</span></div>
+          </a>
+          <a href="tel:+221770103377" class="contact-card">
+            <svg class="icon"><use href="#i-phone"/></svg>
+            <div><span class="contact-label" data-i18n="contact.phone">Téléphone</span><span class="contact-value">+221 77 010 33 77</span></div>
+          </a>
+          <a href="https://wa.me/221770103377" target="_blank" rel="noopener" class="contact-card">
+            <svg class="icon"><use href="#i-whatsapp"/></svg>
+            <div><span class="contact-label">WhatsApp</span><span class="contact-value">+221 77 010 33 77</span></div>
+          </a>
+          <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="contact-card">
+            <svg class="icon"><use href="#i-github"/></svg>
+            <div><span class="contact-label">GitHub</span><span class="contact-value">@alpha-do-code</span></div>
+          </a>
+          <a href="https://www.linkedin.com/in/mamadou-alpha-balde" target="_blank" rel="noopener" class="contact-card" id="linkedinCard">
+            <svg class="icon"><use href="#i-linkedin"/></svg>
+            <div><span class="contact-label">LinkedIn</span><span class="contact-value">Mamadou Alpha BALDE</span></div>
+          </a>
+          <div class="contact-card contact-card-static">
+            <svg class="icon"><use href="#i-map-pin"/></svg>
+            <div><span class="contact-label" data-i18n="contact.location">Localisation</span><span class="contact-value" data-i18n="contact.location_v">Thiès, Sénégal · UTC+0</span></div>
+          </div>
         </div>
 
+        <div class="availability reveal">
+          <span class="pulse-dot"></span>
+          <p data-i18n="contact.availability">
+            <strong>Disponible</strong> pour du télétravail et du présentiel à Thiès ou Dakar.
+          </p>
         </div>
-
-        <!-- Disponibilité -->
-        <div class="availability-card">
-        <span class="availability-dot"></span>
-        <p>
-            <strong>Disponible</strong> pour missions en télétravail (worldwide) et en présentiel à Dakar.
-            Fuseau horaire : <strong>Africa/Dakar (UTC+0)</strong>.
-        </p>
-        </div>
-
-    </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- ============================== FOOTER ============================== -->
   <footer class="site-footer">
-    <p>&copy; 2026 Mamadoou Alpha BALDE — Dakar 🇸🇳</p>
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Mamadou Alpha BALDE</span>
+      <span class="footer-sep">·</span>
+      <span data-i18n="footer.built">Developpeur chez FEVEO2050 SAS </span>
+      <span class="footer-sep">·</span>
+      <a href="#top" data-i18n="footer.top">Haut de page</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

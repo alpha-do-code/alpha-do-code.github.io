@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV — Mamadou Alpha BALDE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181F; --soft:#4A5563; --faint:#727C8A;
+    --accent:#2F49B8; --line:#DCE1EA; --band:#0B0F14;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{ size:A4; margin:13mm 14mm; }
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{
+    font-family:"Inter",-apple-system,system-ui,sans-serif;
+    color:var(--ink); font-size:9.5pt; line-height:1.42;
+  }
+  h1,h2,h3{ font-family:"Space Grotesk","Inter",sans-serif; letter-spacing:-.01em; }
+
+  /* Header */
+  .head{ border-bottom:2px solid var(--accent); padding-bottom:9pt; margin-bottom:11pt; }
+  .name{ font-size:23pt; font-weight:700; letter-spacing:.02em; }
+  .role{ font-size:10pt; font-weight:600; color:var(--accent);
+    text-transform:uppercase; letter-spacing:.22em; margin-top:3pt; }
+  .contact{ margin-top:8pt; font-size:8.7pt; color:var(--soft); display:flex; flex-wrap:wrap; gap:4pt 14pt; }
+  .contact span{ white-space:nowrap; }
+  .contact b{ color:var(--ink); font-weight:600; }
+
+  /* Sections */
+  section{ margin-bottom:9pt; }
+  h2{ font-size:9.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.16em;
+    color:var(--accent); padding-bottom:2.5pt; border-bottom:1px solid var(--line); margin-bottom:6pt; }
+  .lead{ color:var(--soft); }
+
+  .job-title{ font-size:10.5pt; font-weight:700; }
+  .job-meta{ font-size:8.7pt; color:var(--faint); margin:1pt 0 5pt; }
+  .job-context{ color:var(--soft); font-size:9pt; margin-bottom:5pt; }
+  .subhead{ font-weight:700; font-size:8.6pt; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink); margin:6pt 0 3pt; }
+  ul{ list-style:none; }
+  li{ position:relative; padding-left:11pt; margin-bottom:2.5pt; color:var(--soft); }
+  li::before{ content:""; position:absolute; left:0; top:.52em; width:3.5pt; height:3.5pt;
+    border-radius:50%; background:var(--accent); }
+  li b, .job-context b{ color:var(--ink); font-weight:600; }
+  .env{ font-size:8.6pt; color:var(--faint); margin-top:5pt; }
+  .env b{ color:var(--soft); font-weight:600; }
+
+  .entry{ margin-bottom:6pt; page-break-inside:avoid; }
+  .entry .t{ font-weight:700; }
+  .entry .m{ font-size:8.7pt; color:var(--faint); }
+
+  .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:2pt 22pt; }
+  .skills p{ margin-bottom:3pt; color:var(--soft); }
+  .skills b{ color:var(--ink); font-weight:600; }
+
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:0 22pt; }
+  @media print{ .entry{ page-break-inside:avoid; } h2{ page-break-after:avoid; } }
+</style>
+</head>
+<body>
+
+  <header class="head">
+    <div class="name">MAMADOU ALPHA BALDE</div>
+    <div class="role">Développeur Full Stack</div>
+    <div class="contact">
+      <span>Thiès, Sénégal</span>
+      <span><b>+221 77 010 33 77</b></span>
+      <span>alphab045@gmail.com</span>
+      <span>alpha-do-code.github.io</span>
+      <span>github.com/alpha-do-code</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profil</h2>
+    <p class="lead">
+      Développeur full stack, titulaire d'une Licence en Génie Logiciel de l'Université Iba Der Thiam
+      de Thiès. J'exerce depuis novembre 2025 chez FEVEO 2050 SAS, où je développe et maintiens un
+      écosystème de plateformes transactionnelles destinées à une communauté de membres : marketplace,
+      portefeuille électronique, formation en ligne et espace communautaire. J'assure le suivi de ces
+      plateformes en production et je corrige les incidents remontés par les utilisatrices. Certifié en
+      intelligence artificielle et machine learning, je souhaite prolonger ce socle vers la conception
+      de systèmes intelligents appliqués à la finance numérique.
+    </p>
+  </section>
+
+  <section>
+    <h2>Expérience professionnelle</h2>
+    <div class="job-title">Développeur Full Stack — FEVEO 2050 SAS</div>
+    <div class="job-meta">Thiès, Sénégal · depuis novembre 2025</div>
+    <p class="job-context">
+      FEVEO 2050 SAS exploite un écosystème de plateformes numériques destiné à sa communauté de
+      membres : marketplace, portefeuille électronique, plateforme de formation en ligne et espace
+      communautaire.
+    </p>
+
+    <div class="subhead">Développement</div>
+    <ul>
+      <li>Conception et implémentation des interfaces utilisateur, intégration des maquettes graphiques</li>
+      <li>Création et maintenance de l'architecture serveur, des bases de données et des API</li>
+      <li>Maintenance corrective et évolutive de l'ensemble des applications déployées</li>
+      <li><b>Livraison de la première version de la plateforme communautaire</b>, conçue pour s'intégrer au portefeuille électronique du groupe</li>
+    </ul>
+
+    <div class="subhead">Suivi de production et correction d'incidents</div>
+    <ul>
+      <li>Suivi de l'ensemble des plateformes du groupe en conditions réelles d'exploitation : marketplace, formation en ligne, portefeuille électronique et espace communautaire</li>
+      <li>Détection, diagnostic et correction des anomalies, en autonomie ou en binôme</li>
+      <li><b>Point de contact direct des membres</b> pour les problèmes rencontrés sur leur espace personnel : explication, diagnostic et correction</li>
+    </ul>
+    <p class="env"><b>Environnement :</b> React, Node.js, Express, TypeScript, MongoDB, Git, GitHub</p>
+  </section>
+
+  <section>
+    <h2>Projets</h2>
+
+    <div class="entry">
+      <div class="t">GayeTech Store — Site de commerce électronique en production</div>
+      <div class="m">Projet mené seul, de la conception à la mise en production · 2026 · gayetech-store.vercel.app</div>
+      <ul>
+        <li>Architecture client / serveur : React et Vite côté interface, Node.js, Express et TypeScript côté API, MongoDB en base</li>
+        <li><b>Mise en production d'une architecture multi-services sans budget d'hébergement</b> : frontend sur Vercel, API sur Render, base sur MongoDB Atlas, médias sur Cloudinary</li>
+        <li>Sécurité : authentification JWT, hachage bcrypt, Helmet, limitation de débit</li>
+        <li>Module de paiement mobile Wave en cours d'intégration, désactivé côté interface tant qu'il n'est pas opérationnel</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="t">Ndimbeul — Application de mobilité urbaine <span class="m">(en développement)</span></div>
+      <div class="m">Projet personnel · Flutter, Node.js, Express, PostgreSQL / PostGIS</div>
+      <ul>
+        <li>Aide au déplacement sur le réseau de bus TATA AFTU de Dakar : recherche d'itinéraire, tarif section par section, mode hors-ligne</li>
+        <li>Cartographie OpenStreetMap, sans clé ni facturation propriétaire</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="t">Application de gestion des parrainages au Sénégal</div>
+      <div class="m">Projet académique 2023-2024 · HTML, CSS, JavaScript · refonte personnelle en cours sous Next.js et TypeScript</div>
+    </div>
+
+    <div class="subhead">Autres projets</div>
+    <ul>
+      <li>Logiciel de délibération des candidats au BFEM au Sénégal — Python, Tkinter <span class="m">(académique)</span></li>
+      <li>Application web de gestion d'événements — Angular, Laravel <span class="m">(académique)</span></li>
+      <li>Déploiement d'un système de gestion de configuration — Ansible <span class="m">(projet opérationnel académique)</span></li>
+      <li>Sen Vaisselle — application de gestion de stock, Python (PyQt6), MySQL <span class="m">(personnel)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Formation</h2>
+    <div class="two">
+      <div class="entry">
+        <div class="t">Licence en Informatique, spécialité Génie Logiciel</div>
+        <div class="m">Université Iba Der Thiam de Thiès (UIDT)<br>UFR des Sciences et Technologie · 2022-2025<br>Diplôme délivré en juillet 2025</div>
+      </div>
+      <div class="entry">
+        <div class="t">Baccalauréat scientifique, série S2</div>
+        <div class="m">École Privée Kabuka, Dakar · juillet 2021</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="grid2">
+      <div class="entry"><div class="t">Artificial Intelligence and Machine Learning</div><div class="m">Force-N, Université Numérique Cheikh Hamidou Kane · 2024-2025</div></div>
+      <div class="entry"><div class="t">Python 3</div><div class="m">Cisco Networking Academy avec OpenEDG Python Institute · juillet 2024</div></div>
+      <div class="entry"><div class="t">Artificial Intelligence for Everyone</div><div class="m">Force-N, Université Numérique Cheikh Hamidou Kane · août 2024</div></div>
+      <div class="entry"><div class="t">Career Management</div><div class="m">Force-N, Université Numérique Cheikh Hamidou Kane · janvier 2024</div></div>
+    </div>
+  </section>
+
+  <section class="skills">
+    <h2>Compétences techniques</h2>
+    <p><b>Langages</b> &nbsp; JavaScript · TypeScript · Python · Java · PHP · C · Dart</p>
+    <p><b>Front-end</b> &nbsp; React · Next.js · Angular · Vite · Tailwind CSS</p>
+    <p><b>Back-end</b> &nbsp; Node.js · Express · Laravel · API REST · JWT</p>
+    <p><b>Bases de données</b> &nbsp; MongoDB · PostgreSQL · MySQL</p>
+    <p><b>Mobile &amp; bureau</b> &nbsp; Flutter · PyQt6 · Tkinter</p>
+    <p><b>Déploiement &amp; outils</b> &nbsp; Vercel · Render · MongoDB Atlas · Cloudinary · Git · GitHub · GitHub Actions · Ansible · notions de Docker</p>
+  </section>
+
+  <section>
+    <h2>Langues</h2>
+    <ul>
+      <li><b>Français</b> — langue de travail</li>
+      <li><b>Anglais</b> — bon niveau académique, lecture courante de la documentation technique</li>
+      <li><b>Wolof</b> et <b>Pulaar</b> — langues maternelles</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Centres d'intérêt</h2>
+    <p class="lead">Football, cyclisme, scoutisme. Veille technologique en intelligence artificielle.</p>
+  </section>
+
+</body>
+</html>

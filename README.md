@@ -1,2 +1,2 @@
 # alpha-do-code.github.io
-Portfolio personnel d'Alpha — Développeur en reconversion DevOps
+Portfolio personnel d'Alpha — Développeur full stack
