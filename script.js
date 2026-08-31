@@ -48,7 +48,6 @@
     "hero.sub": "Full stack <strong>React</strong> / <strong>Node.js</strong> / <strong>TypeScript</strong> at FEVEO 2050. Certified in <strong>artificial intelligence and machine learning</strong>, I am extending that foundation toward intelligent systems applied to digital finance.",
     "hero.cta_projects": "See the projects",
     "hero.cta_cv": "Download CV",
-    "hero.availability": "Available for freelance work and fixed-term roles",
 
     "stats.degree": "BSc in Software Engineering",
     "stats.job": "Full stack developer at FEVEO 2050",
@@ -127,11 +126,10 @@
 
     "contact.kicker": "Contact",
     "contact.title": "Let's talk about your project",
-    "contact.desc": "Open to freelance work, fixed-term roles and technical collaborations. I reply within 24 hours.",
+    "contact.desc": "For a project, a collaboration or a question, drop me a line. I reply within 24 hours.",
     "contact.phone": "Phone",
     "contact.location": "Location",
     "contact.location_v": "Thiès, Senegal · UTC+0",
-    "contact.availability": "<strong>Available</strong> for remote work and on-site in Thiès or Dakar.",
 
     "footer.built": "Designed and built by me",
     "footer.top": "Back to top"
