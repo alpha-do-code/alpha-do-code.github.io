@@ -483,10 +483,17 @@ h1, h2, h3, h4 {
   filter: blur(12px);
 }
 
+/* piste d'orbite : reprend exactement la boite et l'arrondi de la photo */
+.hero-orbit {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+}
+
 .float-chip {
   position: absolute;
-  z-index: 3;
-  pointer-events: none;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
@@ -509,6 +516,7 @@ h1, h2, h3, h4 {
   background: var(--brand);
   flex-shrink: 0;
 }
+/* positions fixes : socle, et repli si offset-path n'est pas supporte */
 .chip-1 { top: 42px;    left: -30px;   animation-delay: 0s; }
 .chip-2 { top: -16px;   right: 26px;   animation-delay: 1.4s; }
 .chip-3 { bottom: 74px; right: -34px;  animation-delay: 0.7s; }
@@ -516,6 +524,25 @@ h1, h2, h3, h4 {
 @keyframes floaty {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-9px); }
+}
+
+/* les competences tournent le long du cadre de la photo */
+@supports (offset-path: border-box) {
+  .float-chip {
+    top: 0; right: auto; bottom: auto; left: 0;
+    offset-path: border-box;   /* suit le contour arrondi de .hero-orbit */
+    offset-rotate: 0deg;       /* le texte reste droit */
+    animation: orbit 32s linear infinite;
+  }
+  /* delais negatifs : 4 puces equidistantes sur le tour */
+  .chip-1 { animation-delay: -1s; }
+  .chip-2 { animation-delay: -9s; }
+  .chip-3 { animation-delay: -17s; }
+  .chip-4 { animation-delay: -25s; }
+}
+@keyframes orbit {
+  from { offset-distance: 0%; }
+  to   { offset-distance: 100%; }
 }
 
 /* ---------- 7. STATS ---------- */
@@ -849,6 +876,12 @@ h1, h2, h3, h4 {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; }
+  /* orbite figee, puces reparties sur le cadre */
+  .float-chip { animation: none !important; }
+  .chip-1 { offset-distance: 3%; }
+  .chip-2 { offset-distance: 28%; }
+  .chip-3 { offset-distance: 53%; }
+  .chip-4 { offset-distance: 78%; }
 }
 
 /* ---------- 15. RESPONSIVE ---------- */
@@ -857,7 +890,7 @@ h1, h2, h3, h4 {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { max-width: 320px; margin-inline: auto; }
   .hero-visual::before { display: none; }
-  .float-chip { display: none; }
+  .hero-orbit { display: none; }
   .about-grid,
   .path-grid { grid-template-columns: 1fr; }
   .projects { grid-template-columns: 1fr; }
