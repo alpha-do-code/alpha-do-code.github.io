@@ -890,7 +890,15 @@ h1, h2, h3, h4 {
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { max-width: 320px; margin-inline: auto; }
   .hero-visual::before { display: none; }
-  .hero-orbit { display: none; }
+  /* orbite resserree a l'interieur du cadre : les puces restent visibles
+     sans jamais deborder de l'ecran, quelle que soit la largeur */
+  .hero-orbit { inset: 44px; border-radius: 14px; }
+  .float-chip {
+    padding: 0.3rem 0.6rem;
+    gap: 0.32rem;
+    font-size: 0.66rem;
+  }
+  .float-chip::before { width: 6px; height: 6px; }
   .about-grid,
   .path-grid { grid-template-columns: 1fr; }
   .projects { grid-template-columns: 1fr; }
