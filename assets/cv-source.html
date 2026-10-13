@@ -31,7 +31,7 @@
   .contact a{ color:inherit; text-decoration:none; }
 
   /* Sections */
-  section{ margin-bottom:9pt; }
+  section{ margin-bottom:7pt; }
   h2{ font-size:9.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.16em;
     color:var(--accent); padding-bottom:2.5pt; border-bottom:1px solid var(--line); margin-bottom:6pt; }
   .lead{ color:var(--soft); }
@@ -123,29 +123,35 @@
       <div class="t">GayeTech Store — Site de commerce électronique en production</div>
       <div class="m">Projet mené seul, de la conception à la mise en production · 2026 · gayetech-store.vercel.app</div>
       <ul>
-        <li>Architecture client / serveur : React et Vite côté interface, Node.js, Express et TypeScript côté API, MongoDB en base</li>
+        <li>Architecture client / serveur : React et Vite côté interface, Node.js, Express et TypeScript côté API, MongoDB en base ; sécurité JWT, bcrypt, Helmet, limitation de débit</li>
         <li><b>Mise en production d'une architecture multi-services sans budget d'hébergement</b> : frontend sur Vercel, API sur Render, base sur MongoDB Atlas, médias sur Cloudinary</li>
-        <li>Sécurité : authentification JWT, hachage bcrypt, Helmet, limitation de débit</li>
         <li>Module de paiement mobile Wave en cours d'intégration, désactivé côté interface tant qu'il n'est pas opérationnel</li>
       </ul>
     </div>
 
     <div class="entry">
-      <div class="t">Ndimbeul — Application de mobilité urbaine <span class="m">(en développement)</span></div>
-      <div class="m">Projet personnel · Flutter, Node.js, Express, PostgreSQL / PostGIS</div>
+      <div class="t">Tailleur 2.0 — Application de gestion d'atelier de couture en ligne (bêta)</div>
+      <div class="m">Projet mené seul · 2026 · bêta gratuite · tailleur20.ailleur-pro.workers.dev</div>
       <ul>
-        <li>Aide au déplacement sur le réseau de bus TATA AFTU de Dakar : recherche d'itinéraire, tarif section par section, mode hors-ligne</li>
-        <li>Cartographie OpenStreetMap, sans clé ni facturation propriétaire</li>
+        <li>Clients et fiches de mesures, commandes en cinq étapes, acomptes et reçus PDF partagés sur WhatsApp</li>
+        <li><b>Application web installable (PWA) sur Android et iPhone, utilisable sans réseau</b> : Flutter, SQLite en WebAssembly</li>
+        <li>Comptes par numéro et code à 6 chiffres, sauvegarde et restauration en ligne sur Supabase protégées par des règles RLS, hébergement Cloudflare, intégration continue GitHub Actions</li>
       </ul>
     </div>
 
     <div class="entry">
-      <div class="t">Application de gestion des parrainages au Sénégal</div>
-      <div class="m">Projet académique 2023-2024 · HTML, CSS, JavaScript · refonte personnelle en cours sous Next.js et TypeScript</div>
+      <div class="t">AGACHU — Plateforme de commerce multi-univers <span class="m">(en développement)</span></div>
+      <div class="m">Projet personnel mené avec un associé · NestJS, Next.js, TypeScript, Prisma, PostgreSQL, Redis</div>
+      <ul>
+        <li>Boutiques, restaurants et créateurs dans un même catalogue, panier et commande unique, espace vendeur, tableau de bord d'administration, livraison avec suivi en direct et VTC</li>
+        <li><b>Monorepo Turborepo</b> (API NestJS, web Next.js), interface en français, anglais et arabe, audit de sécurité en 20 points. Paiements simulés en attendant un vrai fournisseur</li>
+      </ul>
     </div>
 
     <div class="subhead">Autres projets</div>
     <ul>
+      <li>Ndimbeul — mobilité urbaine sur le réseau de bus TATA AFTU de Dakar : itinéraires, tarifs par section, hors-ligne — Flutter, Node.js, PostgreSQL / PostGIS, OpenStreetMap <span class="m">(personnel, en développement)</span></li>
+      <li>Gestion des parrainages au Sénégal — HTML, CSS, JavaScript, refonte en cours sous Next.js et TypeScript <span class="m">(académique 2023-2024)</span></li>
       <li>Logiciel de délibération des candidats au BFEM au Sénégal — Python, Tkinter <span class="m">(académique)</span></li>
       <li>Application web de gestion d'événements — Angular, Laravel <span class="m">(académique)</span></li>
       <li>Déploiement d'un système de gestion de configuration — Ansible <span class="m">(projet opérationnel académique)</span></li>
@@ -181,10 +187,10 @@
     <h2>Compétences techniques</h2>
     <p><b>Langages</b> &nbsp; JavaScript · TypeScript · Python · Java · PHP · C · Dart</p>
     <p><b>Front-end</b> &nbsp; React · Next.js · Angular · Vite · Tailwind CSS</p>
-    <p><b>Back-end</b> &nbsp; Node.js · Express · Laravel · API REST · JWT</p>
-    <p><b>Bases de données</b> &nbsp; MongoDB · PostgreSQL · MySQL</p>
-    <p><b>Mobile &amp; bureau</b> &nbsp; Flutter · PyQt6 · Tkinter</p>
-    <p><b>Déploiement &amp; outils</b> &nbsp; Vercel · Render · MongoDB Atlas · Cloudinary · Git · GitHub · GitHub Actions · Ansible · notions de Docker</p>
+    <p><b>Back-end</b> &nbsp; Node.js · Express · NestJS · Prisma · Laravel · API REST · JWT</p>
+    <p><b>Bases de données</b> &nbsp; MongoDB · PostgreSQL / PostGIS · Supabase · SQLite · Redis · MySQL</p>
+    <p><b>Mobile &amp; bureau</b> &nbsp; Flutter · PWA · PyQt6 · Tkinter</p>
+    <p><b>Déploiement &amp; outils</b> &nbsp; Vercel · Render · Cloudflare Workers · MongoDB Atlas · Cloudinary · Turborepo · Git · GitHub · GitHub Actions · Ansible · notions de Docker</p>
   </section>
 
   <section>

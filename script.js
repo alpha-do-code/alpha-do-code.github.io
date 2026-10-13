@@ -51,7 +51,7 @@
 
     "stats.degree": "BSc in Software Engineering",
     "stats.job": "Full stack developer at FEVEO 2050",
-    "stats.prod": "E-commerce shipped solo to production",
+    "stats.prod": "Products shipped solo, from design to deployment",
     "stats.certs": "Certifications, including AI & machine learning",
 
     "about.kicker": "About",
@@ -91,6 +91,8 @@
     "projects.repo_soon": "Repo public soon",
     "projects.repo_private": "Private repo",
     "projects.multiplatform": "Android & iOS",
+    "projects.live_beta": "Live · beta",
+    "projects.app": "Open the app",
 
     "projects.gaye_role": "E-commerce · built solo, concept to production · 2026",
     "projects.gaye_desc": "A full online store. Client / server architecture: React + Vite on the front, Node.js + Express + TypeScript on the API, MongoDB for storage. Shipped a multi-service architecture with no hosting budget (Vercel, Render, MongoDB Atlas, Cloudinary). Security: JWT, bcrypt, Helmet, rate limiting.",
@@ -103,8 +105,12 @@
     "projects.ndim_role": "Urban mobility app · personal project",
     "projects.ndim_desc": "Trip assistance for the TATA AFTU bus network in Dakar: route search, fare by segment, offline mode. Flutter mobile app, Node.js + Express API with PostgreSQL and PostGIS, OpenStreetMap tiles with no proprietary key.",
 
-    "projects.tail_role": "Tailoring workshop management · personal project",
-    "projects.tail_desc": "Management app for tailoring workshops: client records, orders, measurements, models, invoices and subscriptions. Fully local (SQLite, Provider), no backend. Ported to Android and iOS, with GitHub Actions CI and integration tests.",
+    "projects.tail_role": "Tailoring workshop management · built solo · 2026",
+    "projects.tail_desc": "App for tailoring workshops: clients and measurement sheets, five-step orders, deposits and PDF receipts shared on WhatsApp. Installable web app (PWA) on Android and iPhone, usable offline thanks to SQLite in WebAssembly. Accounts by phone number and 6-digit code, online backup on Supabase protected by RLS, hosted on Cloudflare, GitHub Actions CI.",
+    "projects.tail_note": "Free beta, open to the first tailors testing it.",
+    "projects.aga_role": "Multi-vertical commerce platform · personal project built with a partner · 2026",
+    "projects.aga_desc": "“The market in your pocket”: shops, restaurants and designers in one catalogue, single cart and checkout, seller space, admin dashboard, delivery with live tracking and ride-hailing. Turborepo monorepo: NestJS API, Next.js web app, Prisma and PostgreSQL, Redis, interface in French, English and Arabic. 20-point security audit.",
+    "projects.aga_note": "Payments are simulated until a real provider is connected; not live yet.",
 
     "projects.more_title": "Other work",
     "projects.more_parr_t": "Sponsorship management, Senegal",

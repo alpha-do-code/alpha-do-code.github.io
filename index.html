@@ -190,8 +190,8 @@
           <span class="stat-label" data-i18n="stats.job">Full stack en poste chez FEVEO 2050</span>
         </div>
         <div class="stat reveal">
-          <span class="stat-num">1</span>
-          <span class="stat-label" data-i18n="stats.prod">E-commerce mené seul jusqu'en production</span>
+          <span class="stat-num">2</span>
+          <span class="stat-label" data-i18n="stats.prod">Produits mis en ligne seul, de la conception au déploiement</span>
         </div>
         <div class="stat reveal">
           <span class="stat-num">4</span>
@@ -298,6 +298,8 @@
               <li class="chip chip-core">TypeScript</li>
               <li class="chip">API REST</li>
               <li class="chip">JWT</li>
+              <li class="chip">NestJS</li>
+              <li class="chip">Prisma</li>
               <li class="chip">Laravel</li>
             </ul>
           </article>
@@ -308,6 +310,9 @@
               <li class="chip chip-core">MongoDB</li>
               <li class="chip">PostgreSQL</li>
               <li class="chip">PostGIS</li>
+              <li class="chip">Supabase</li>
+              <li class="chip">SQLite</li>
+              <li class="chip">Redis</li>
               <li class="chip">MySQL</li>
             </ul>
           </article>
@@ -316,6 +321,7 @@
             <div class="stack-card-head"><svg class="icon"><use href="#i-smartphone"/></svg><h3 data-i18n="stack.mobile">Mobile &amp; desktop</h3></div>
             <ul class="chips">
               <li class="chip">Flutter</li>
+              <li class="chip">PWA</li>
               <li class="chip">PyQt6</li>
               <li class="chip">Tkinter</li>
             </ul>
@@ -330,6 +336,8 @@
               <li class="chip">Render</li>
               <li class="chip">MongoDB Atlas</li>
               <li class="chip">Cloudinary</li>
+              <li class="chip">Cloudflare Workers</li>
+              <li class="chip">Turborepo</li>
               <li class="chip">Docker (notions)</li>
               <li class="chip">Ansible</li>
             </ul>
@@ -432,6 +440,80 @@
             </div>
           </article>
 
+          <!-- Tailleur 2.0 -->
+          <article class="project reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-scissors"/></svg>
+              <span class="project-status status-live">
+                <span class="pulse-dot pulse-dot-sm"></span>
+                <span data-i18n="projects.live_beta">En ligne · bêta</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Tailleur 2.0</h3>
+              <p class="project-role" data-i18n="projects.tail_role">Gestion d'atelier de couture · projet mené seul · 2026</p>
+              <p class="project-desc" data-i18n="projects.tail_desc">
+                Application pour les ateliers de couture : clients et fiches de mesures,
+                commandes en cinq étapes, acomptes et reçus PDF partagés sur WhatsApp.
+                Application web installable (PWA) sur Android et iPhone, utilisable sans
+                réseau grâce à SQLite en WebAssembly. Comptes par numéro et code à
+                6 chiffres, sauvegarde en ligne sur Supabase protégée par RLS, hébergement
+                Cloudflare, intégration continue GitHub Actions.
+              </p>
+              <p class="project-note" data-i18n="projects.tail_note">
+                <svg class="icon"><use href="#i-dot"/></svg>
+                Bêta gratuite, ouverte aux premiers tailleurs testeurs.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">Flutter</li><li class="chip">PWA</li><li class="chip">SQLite</li>
+                <li class="chip">Supabase</li><li class="chip">Cloudflare</li><li class="chip">GitHub Actions</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://tailleur20.ailleur-pro.workers.dev" target="_blank" rel="noopener" class="plink plink-primary">
+                  <svg class="icon"><use href="#i-external"/></svg><span data-i18n="projects.app">Voir l'application</span>
+                </a>
+                <span class="plink plink-muted">
+                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_private">Repo privé</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- AGACHU -->
+          <article class="project reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-layers"/></svg>
+              <span class="project-status status-wip">
+                <svg class="icon"><use href="#i-git-branch"/></svg>
+                <span data-i18n="projects.wip">En développement</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">AGACHU</h3>
+              <p class="project-role" data-i18n="projects.aga_role">Plateforme de commerce multi-univers · projet personnel mené avec un associé · 2026</p>
+              <p class="project-desc" data-i18n="projects.aga_desc">
+                « Le marché dans vos poches » : boutiques, restaurants et créateurs dans un
+                même catalogue, panier et commande unique, espace vendeur, tableau de bord
+                d'administration, livraison avec suivi en direct et VTC. Monorepo Turborepo :
+                API NestJS, web Next.js, Prisma et PostgreSQL, Redis, interface en français,
+                anglais et arabe. Audit de sécurité en 20 points.
+              </p>
+              <p class="project-note" data-i18n="projects.aga_note">
+                <svg class="icon"><use href="#i-dot"/></svg>
+                Paiements simulés en attendant un vrai fournisseur ; pas encore en ligne.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">NestJS</li><li class="chip">Next.js</li><li class="chip">TypeScript</li>
+                <li class="chip">Prisma</li><li class="chip">PostgreSQL</li><li class="chip">Redis</li>
+              </ul>
+              <div class="project-links">
+                <span class="plink plink-muted">
+                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_private">Repo privé</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
           <!-- Ndimbeul -->
           <article class="project reveal">
             <div class="project-media">
@@ -457,36 +539,6 @@
               <div class="project-links">
                 <span class="plink plink-muted">
                   <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_soon">Repo bientôt public</span>
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <!-- Tailleur Pro -->
-          <article class="project reveal">
-            <div class="project-media">
-              <svg class="icon project-icon"><use href="#i-scissors"/></svg>
-              <span class="project-status status-work">
-                <svg class="icon"><use href="#i-smartphone"/></svg>
-                <span data-i18n="projects.multiplatform">Android &amp; iOS</span>
-              </span>
-            </div>
-            <div class="project-body">
-              <h3 class="project-title">Tailleur Pro</h3>
-              <p class="project-role" data-i18n="projects.tail_role">Gestion d'atelier de couture · projet personnel</p>
-              <p class="project-desc" data-i18n="projects.tail_desc">
-                Application de gestion pour ateliers de couture : fiches clients, commandes,
-                mesures, modèles, factures et abonnements. Entièrement locale (SQLite,
-                Provider), sans backend. Portée sur Android et iOS, avec intégration
-                continue GitHub Actions et tests d'intégration.
-              </p>
-              <ul class="chips chips-sm">
-                <li class="chip">Flutter</li><li class="chip">Dart</li><li class="chip">SQLite</li>
-                <li class="chip">Provider</li><li class="chip">GitHub Actions</li>
-              </ul>
-              <div class="project-links">
-                <span class="plink plink-muted">
-                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_private">Repo privé</span>
                 </span>
               </div>
             </div>
