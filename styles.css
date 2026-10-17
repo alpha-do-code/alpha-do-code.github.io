@@ -936,3 +936,174 @@ h1, h2, h3, h4 {
   .btn { flex: 1 1 auto; justify-content: center; }
   .hero-cta { gap: 0.6rem; }
 }
+
+/* ---------- 16. EFFETS : progression, hero vivant, projecteur ---------- */
+
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 150;
+  height: 2px;
+  background: var(--grad);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* titre : chaque mot monte depuis sa ligne */
+.hero-title .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.06em;
+}
+.hero-title .w > span {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.1, 1) forwards;
+  animation-delay: calc(var(--i) * 110ms + 120ms);
+}
+@keyframes rise { to { transform: none; } }
+
+/* dégradé du nom qui circule lentement */
+.grad-flow {
+  background-image: linear-gradient(90deg, var(--brand), var(--brand-2), var(--brand));
+  background-size: 200% 100%;
+  animation: flow 7s linear infinite;
+}
+@keyframes flow { to { background-position: -200% 0; } }
+
+/* grille et halo qui suivent le pointeur */
+.hero { --mx: 50%; --my: -20%; }
+.hero-grid-hl {
+  background-image:
+    linear-gradient(to right, var(--brand-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--brand-line) 1px, transparent 1px);
+  mask-image: radial-gradient(240px circle at var(--mx) var(--my), #000, transparent 75%);
+  -webkit-mask-image: radial-gradient(240px circle at var(--mx) var(--my), #000, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.hero-spot {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(520px circle at var(--mx) var(--my), var(--brand-wash), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.hero.is-pointer .hero-grid-hl { opacity: 1; }
+.hero.is-pointer .hero-spot { opacity: 1; }
+
+/* portrait : légère inclinaison 3D et reflet */
+.hero-photo {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.25s var(--ease);
+}
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(380px circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, 0.16), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+.hero-visual.is-tilt .hero-photo::before { opacity: 1; }
+
+/* cartes : bordure et lueur qui suivent le pointeur */
+.spot { position: relative; isolation: isolate; --x: 50%; --y: 50%; }
+.spot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--x) var(--y), var(--brand-wash), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .spot:hover {
+    border-color: transparent;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      radial-gradient(240px circle at var(--x) var(--y), var(--brand), var(--border) 70%) border-box;
+  }
+  .spot:hover::after { opacity: 1; }
+}
+
+/* badge « en ligne » vérifié en direct */
+.live-check {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.66rem;
+  opacity: 0.8;
+}
+.live-check::before { content: "· "; }
+
+/* ---------- 17. MÉTHODE ---------- */
+
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.method-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.6rem 1.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease), box-shadow var(--t);
+}
+.method-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.method-n {
+  position: absolute;
+  top: 1.3rem;
+  right: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
+.method-card > .icon {
+  width: 42px; height: 42px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--brand-wash);
+  color: var(--brand);
+  margin-bottom: 1.1rem;
+}
+.method-card h3 { font-size: 1.15rem; margin-bottom: 0.55rem; }
+.method-card p { color: var(--text-soft); font-size: 0.93rem; }
+
+.checkbar { display: flex; gap: 3px; margin-top: 1.25rem; }
+.checkbar i {
+  flex: 1;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--border);
+  transition: background 0.3s var(--ease);
+}
+.method-card.in .checkbar i { background: var(--brand); }
+.method-card.in .checkbar i { transition-delay: calc(var(--n, 0) * 45ms + 400ms); }
+.method-meta {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 940px) {
+  .method-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .w > span { transform: none; animation: none; }
+  .grad-flow { animation: none; }
+  .hero-photo { transform: none; }
+  .hero-grid-hl, .hero-spot { display: none; }
+  .checkbar i { transition-delay: 0s !important; }
+}

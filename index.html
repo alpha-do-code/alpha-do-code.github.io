@@ -79,7 +79,12 @@
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
     <symbol id="i-dot" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
   </svg>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <a href="#main" class="skip-link" data-i18n="a11y.skip">Aller au contenu</a>
 
@@ -95,6 +100,7 @@
         <a href="#about" data-i18n="nav.about">À propos</a>
         <a href="#stack" data-i18n="nav.stack">Stack</a>
         <a href="#projects" data-i18n="nav.projects">Projets</a>
+        <a href="#method" data-i18n="nav.method">Méthode</a>
         <a href="#path" data-i18n="nav.path">Parcours</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
@@ -123,6 +129,8 @@
     <section class="hero" id="hero">
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-grid"></div>
+        <div class="hero-grid hero-grid-hl"></div>
+        <div class="hero-spot"></div>
         <div class="hero-glow hero-glow-1"></div>
         <div class="hero-glow hero-glow-2"></div>
       </div>
@@ -134,7 +142,11 @@
             <span data-i18n="hero.eyebrow">Développeur Full Stack · Thiès, Sénégal</span>
           </p>
 
-          <h1 class="hero-title reveal">Mamadou Alpha <span class="grad">BALDE</span></h1>
+          <h1 class="hero-title">
+            <span class="w"><span style="--i:0">Mamadou</span></span>
+            <span class="w"><span style="--i:1">Alpha</span></span>
+            <span class="w"><span style="--i:2"><span class="grad grad-flow">BALDE</span></span></span>
+          </h1>
 
           <p class="hero-lead reveal" data-i18n="hero.lead">
             Je conçois et fais tourner des plateformes web transactionnelles,
@@ -190,11 +202,11 @@
           <span class="stat-label" data-i18n="stats.job">Full stack en poste chez FEVEO 2050</span>
         </div>
         <div class="stat reveal">
-          <span class="stat-num">2</span>
+          <span class="stat-num" data-count="2">2</span>
           <span class="stat-label" data-i18n="stats.prod">Produits mis en ligne seul, de la conception au déploiement</span>
         </div>
         <div class="stat reveal">
-          <span class="stat-num">4</span>
+          <span class="stat-num" data-count="4">4</span>
           <span class="stat-label" data-i18n="stats.certs">Certifications, dont IA &amp; machine learning</span>
         </div>
       </div>
@@ -232,28 +244,28 @@
           </div>
 
           <ul class="about-cards reveal">
-            <li class="about-card">
+            <li class="about-card spot">
               <svg class="icon"><use href="#i-cap"/></svg>
               <div>
                 <strong data-i18n="about.card_edu_t">Licence Génie Logiciel</strong>
                 <span data-i18n="about.card_edu_d">UIDT Thiès · 2022-2025</span>
               </div>
             </li>
-            <li class="about-card">
+            <li class="about-card spot">
               <svg class="icon"><use href="#i-map-pin"/></svg>
               <div>
                 <strong data-i18n="about.card_loc_t">Thiès, Sénégal</strong>
                 <span data-i18n="about.card_loc_d">Originaire de Dakar · fuseau UTC+0</span>
               </div>
             </li>
-            <li class="about-card">
+            <li class="about-card spot">
               <svg class="icon"><use href="#i-globe"/></svg>
               <div>
                 <strong data-i18n="about.card_lang_t">Français, Anglais, Wolof, Pulaar</strong>
                 <span data-i18n="about.card_lang_d">Anglais : bon niveau académique, doc technique</span>
               </div>
             </li>
-            <li class="about-card">
+            <li class="about-card spot">
               <svg class="icon"><use href="#i-sparkles"/></svg>
               <div>
                 <strong data-i18n="about.card_ai_t">Cap IA &amp; data</strong>
@@ -278,7 +290,7 @@
         </header>
 
         <div class="stack-grid">
-          <article class="stack-card reveal">
+          <article class="stack-card reveal spot">
             <div class="stack-card-head"><svg class="icon"><use href="#i-code"/></svg><h3 data-i18n="stack.front">Front-end</h3></div>
             <ul class="chips">
               <li class="chip chip-core">React</li>
@@ -290,7 +302,7 @@
             </ul>
           </article>
 
-          <article class="stack-card reveal">
+          <article class="stack-card reveal spot">
             <div class="stack-card-head"><svg class="icon"><use href="#i-server"/></svg><h3 data-i18n="stack.back">Back-end</h3></div>
             <ul class="chips">
               <li class="chip chip-core">Node.js</li>
@@ -304,7 +316,7 @@
             </ul>
           </article>
 
-          <article class="stack-card reveal">
+          <article class="stack-card reveal spot">
             <div class="stack-card-head"><svg class="icon"><use href="#i-database"/></svg><h3 data-i18n="stack.data">Bases de données</h3></div>
             <ul class="chips">
               <li class="chip chip-core">MongoDB</li>
@@ -317,7 +329,7 @@
             </ul>
           </article>
 
-          <article class="stack-card reveal">
+          <article class="stack-card reveal spot">
             <div class="stack-card-head"><svg class="icon"><use href="#i-smartphone"/></svg><h3 data-i18n="stack.mobile">Mobile &amp; desktop</h3></div>
             <ul class="chips">
               <li class="chip">Flutter</li>
@@ -327,7 +339,7 @@
             </ul>
           </article>
 
-          <article class="stack-card reveal">
+          <article class="stack-card reveal spot">
             <div class="stack-card-head"><svg class="icon"><use href="#i-wrench"/></svg><h3 data-i18n="stack.ops">Déploiement &amp; outils</h3></div>
             <ul class="chips">
               <li class="chip chip-core">Git / GitHub</li>
@@ -343,7 +355,7 @@
             </ul>
           </article>
 
-          <article class="stack-card reveal">
+          <article class="stack-card reveal spot">
             <div class="stack-card-head"><svg class="icon"><use href="#i-cpu"/></svg><h3 data-i18n="stack.ai">IA &amp; data</h3></div>
             <ul class="chips">
               <li class="chip">Machine learning (certifié)</li>
@@ -372,12 +384,13 @@
         <div class="projects">
 
           <!-- GayeTech Store -->
-          <article class="project project-feature reveal">
+          <article class="project project-feature spot reveal">
             <div class="project-media">
               <svg class="icon project-icon"><use href="#i-bag"/></svg>
-              <span class="project-status status-live">
+              <span class="project-status status-live" data-live="https://gayetech-store.vercel.app/">
                 <span class="pulse-dot pulse-dot-sm"></span>
                 <span data-i18n="projects.live">En production</span>
+                <span class="live-check" data-i18n="projects.verified" hidden>vérifié à l'instant</span>
               </span>
             </div>
             <div class="project-body">
@@ -411,7 +424,7 @@
           </article>
 
           <!-- Plateforme communautaire FEVEO -->
-          <article class="project project-feature reveal">
+          <article class="project project-feature spot reveal">
             <div class="project-media">
               <svg class="icon project-icon"><use href="#i-users"/></svg>
               <span class="project-status status-work">
@@ -441,12 +454,13 @@
           </article>
 
           <!-- Tailleur 2.0 -->
-          <article class="project reveal">
+          <article class="project spot reveal">
             <div class="project-media">
               <svg class="icon project-icon"><use href="#i-scissors"/></svg>
-              <span class="project-status status-live">
+              <span class="project-status status-live" data-live="https://tailleur20.ailleur-pro.workers.dev">
                 <span class="pulse-dot pulse-dot-sm"></span>
                 <span data-i18n="projects.live_beta">En ligne · bêta</span>
+                <span class="live-check" data-i18n="projects.verified" hidden>vérifié à l'instant</span>
               </span>
             </div>
             <div class="project-body">
@@ -480,7 +494,7 @@
           </article>
 
           <!-- AGACHU -->
-          <article class="project reveal">
+          <article class="project spot reveal">
             <div class="project-media">
               <svg class="icon project-icon"><use href="#i-layers"/></svg>
               <span class="project-status status-wip">
@@ -515,7 +529,7 @@
           </article>
 
           <!-- Ndimbeul -->
-          <article class="project reveal">
+          <article class="project spot reveal">
             <div class="project-media">
               <svg class="icon project-icon"><use href="#i-route"/></svg>
               <span class="project-status status-wip">
@@ -587,11 +601,77 @@
       </div>
     </section>
 
-    <!-- ============================== PATH ============================== -->
-    <section class="section section-alt" id="path">
+    <!-- ============================== METHOD ============================== -->
+    <section class="section section-alt" id="method">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-kicker"><span>04</span><span data-i18n="path.kicker">Parcours &amp; certifications</span></p>
+          <p class="section-kicker"><span>04</span><span data-i18n="method.kicker">Ma façon de travailler</span></p>
+          <h2 class="section-title" data-i18n="method.title">Ce qui ne se voit pas dans une démo</h2>
+          <p class="section-desc" data-i18n="method.desc">
+            Une interface se copie. La rigueur derrière, non. Voici les règles que
+            j'applique sur mes projets.
+          </p>
+        </header>
+
+        <div class="method-grid">
+          <article class="method-card spot reveal">
+            <span class="method-n">01</span>
+            <svg class="icon"><use href="#i-shield"/></svg>
+            <h3 data-i18n="method.sec_t">Sécurité vérifiée dans le code</h3>
+            <p data-i18n="method.sec_d">
+              Avant une mise en production, je passe le projet au crible d'une liste de
+              20 contrôles : mots de passe hachés, droits vérifiés côté serveur, entrées
+              validées, CORS, limites de débit, webhooks signés. Chaque point est prouvé
+              dans le code, pas supposé.
+            </p>
+            <div class="checkbar" aria-hidden="true">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="method-meta" data-i18n="method.sec_m">20 contrôles</span>
+          </article>
+
+          <article class="method-card spot reveal">
+            <span class="method-n">02</span>
+            <svg class="icon"><use href="#i-rocket"/></svg>
+            <h3 data-i18n="method.ship_t">Livrer, puis améliorer</h3>
+            <p data-i18n="method.ship_d">
+              Un produit en ligne vaut mieux qu'une architecture parfaite.
+              GayeTech Store tourne sur des offres gratuites multi-services, Tailleur 2.0
+              est sorti en application web installable plutôt que d'attendre les stores.
+            </p>
+          </article>
+
+          <article class="method-card spot reveal">
+            <span class="method-n">03</span>
+            <svg class="icon"><use href="#i-activity"/></svg>
+            <h3 data-i18n="method.run_t">Présent après la mise en ligne</h3>
+            <p data-i18n="method.run_d">
+              Chez FEVEO 2050, je suis les plateformes en production et je traite les
+              incidents remontés par les utilisatrices, du diagnostic jusqu'au correctif.
+              Le travail ne s'arrête pas au déploiement.
+            </p>
+          </article>
+
+          <article class="method-card spot reveal">
+            <span class="method-n">04</span>
+            <svg class="icon"><use href="#i-badge-check"/></svg>
+            <h3 data-i18n="method.proof_t">Rien d'annoncé sans preuve</h3>
+            <p data-i18n="method.proof_d">
+              Une fonctionnalité inachevée est désactivée, pas mise en vitrine. Ce site
+              suit la même règle : les badges « en ligne » des projets sont vérifiés en
+              direct depuis votre navigateur.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PATH ============================== -->
+    <section class="section" id="path">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-kicker"><span>05</span><span data-i18n="path.kicker">Parcours &amp; certifications</span></p>
           <h2 class="section-title" data-i18n="path.title">Formation et titres</h2>
         </header>
 
@@ -652,10 +732,10 @@
     </section>
 
     <!-- ============================== CONTACT ============================== -->
-    <section class="section" id="contact">
+    <section class="section section-alt" id="contact">
       <div class="container">
         <header class="section-head reveal">
-          <p class="section-kicker"><span>05</span><span data-i18n="contact.kicker">Contact</span></p>
+          <p class="section-kicker"><span>06</span><span data-i18n="contact.kicker">Contact</span></p>
           <h2 class="section-title" data-i18n="contact.title">Parlons de votre projet</h2>
           <p class="section-desc" data-i18n="contact.desc">
             Pour un projet, une collaboration ou une question, écrivez-moi.
@@ -664,23 +744,23 @@
         </header>
 
         <div class="contact-grid reveal">
-          <a href="mailto:alphab045@gmail.com" class="contact-card">
+          <a href="mailto:alphab045@gmail.com" class="contact-card spot">
             <svg class="icon"><use href="#i-mail"/></svg>
             <div><span class="contact-label">Email</span><span class="contact-value">alphab045@gmail.com</span></div>
           </a>
-          <a href="tel:+221770103377" class="contact-card">
+          <a href="tel:+221770103377" class="contact-card spot">
             <svg class="icon"><use href="#i-phone"/></svg>
             <div><span class="contact-label" data-i18n="contact.phone">Téléphone</span><span class="contact-value">+221 77 010 33 77</span></div>
           </a>
-          <a href="https://wa.me/221770103377" target="_blank" rel="noopener" class="contact-card">
+          <a href="https://wa.me/221770103377" target="_blank" rel="noopener" class="contact-card spot">
             <svg class="icon"><use href="#i-whatsapp"/></svg>
             <div><span class="contact-label">WhatsApp</span><span class="contact-value">+221 77 010 33 77</span></div>
           </a>
-          <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="contact-card">
+          <a href="https://github.com/alpha-do-code" target="_blank" rel="noopener" class="contact-card spot">
             <svg class="icon"><use href="#i-github"/></svg>
             <div><span class="contact-label">GitHub</span><span class="contact-value">@alpha-do-code</span></div>
           </a>
-          <a href="https://www.linkedin.com/in/mamadou-alpha-bald%C3%A9-a4a306249" target="_blank" rel="noopener" class="contact-card">
+          <a href="https://www.linkedin.com/in/mamadou-alpha-bald%C3%A9-a4a306249" target="_blank" rel="noopener" class="contact-card spot">
             <svg class="icon"><use href="#i-linkedin"/></svg>
             <div><span class="contact-label">LinkedIn</span><span class="contact-value">Mamadou Alpha BALDE</span></div>
           </a>

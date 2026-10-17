@@ -40,6 +40,7 @@
     "nav.about": "About",
     "nav.stack": "Stack",
     "nav.projects": "Projects",
+    "nav.method": "Method",
     "nav.path": "Background",
     "nav.contact": "Contact",
 
@@ -93,6 +94,7 @@
     "projects.multiplatform": "Android & iOS",
     "projects.live_beta": "Live · beta",
     "projects.app": "Open the app",
+    "projects.verified": "checked just now",
 
     "projects.gaye_role": "E-commerce · built solo, concept to production · 2026",
     "projects.gaye_desc": "A full online store. Client / server architecture: React + Vite on the front, Node.js + Express + TypeScript on the API, MongoDB for storage. Shipped a multi-service architecture with no hosting budget (Vercel, Render, MongoDB Atlas, Cloudinary). Security: JWT, bcrypt, Helmet, rate limiting.",
@@ -123,6 +125,19 @@
     "projects.more_ansible_t": "Multi-server configuration deployment",
     "projects.more_ansible": "Configuration-management system, reusable playbooks, modular roles.",
 
+    "method.kicker": "How I work",
+    "method.title": "What a demo doesn't show",
+    "method.desc": "An interface can be copied. The rigour behind it can't. These are the rules I apply to my projects.",
+    "method.sec_t": "Security verified in the code",
+    "method.sec_d": "Before going to production, I run the project through a 20-point checklist: hashed passwords, server-side authorization, validated input, CORS, rate limiting, signed webhooks. Every point is proven in the code, not assumed.",
+    "method.sec_m": "20 checks",
+    "method.ship_t": "Ship, then improve",
+    "method.ship_d": "A product that is live beats a perfect architecture. GayeTech Store runs on free multi-service tiers, and Tailleur 2.0 shipped as an installable web app instead of waiting for the app stores.",
+    "method.run_t": "Still there after launch",
+    "method.run_d": "At FEVEO 2050 I monitor the platforms in production and handle the incidents reported by users, from diagnosis to fix. The work does not stop at deployment.",
+    "method.proof_t": "Nothing claimed without proof",
+    "method.proof_d": "An unfinished feature is disabled, not showcased. This site follows the same rule: the “live” badges on the projects are checked in real time from your browser.",
+
     "path.kicker": "Background & certifications",
     "path.title": "Education and credentials",
     "path.lic_t": "BSc in Computer Science, Software Engineering track",
@@ -137,7 +152,7 @@
     "contact.location": "Location",
     "contact.location_v": "Thiès, Senegal · UTC+0",
 
-    "footer.built": "Designed and built by me",
+    "footer.built": "Developer at FEVEO 2050 SAS",
     "footer.top": "Back to top"
   };
 
@@ -250,7 +265,117 @@
     reveals.forEach(function (el) { revObs.observe(el); });
   }
 
-  /* ---------- 7. DÉTAILS ---------- */
+  /* ---------- 7. EFFETS ---------- */
+
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  // Barre de progression de lecture
+  var progress = document.getElementById("scrollProgress");
+  var ticking = false;
+  function paintProgress() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ")";
+    ticking = false;
+  }
+  if (progress) {
+    window.addEventListener("scroll", function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(paintProgress); }
+    }, { passive: true });
+    paintProgress();
+  }
+
+  if (finePointer && !reduce) {
+    // Hero : grille et halo qui suivent le pointeur
+    var hero = document.getElementById("hero");
+    if (hero) {
+      hero.addEventListener("pointermove", function (e) {
+        var r = hero.getBoundingClientRect();
+        hero.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        hero.style.setProperty("--my", (e.clientY - r.top) + "px");
+        hero.classList.add("is-pointer");
+      });
+      hero.addEventListener("pointerleave", function () { hero.classList.remove("is-pointer"); });
+    }
+
+    // Portrait : inclinaison 3D
+    var visual = document.querySelector(".hero-visual");
+    var photo = document.querySelector(".hero-photo");
+    if (visual && photo) {
+      visual.addEventListener("pointermove", function (e) {
+        var r = photo.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        photo.style.setProperty("--ry", ((px - 0.5) * 10).toFixed(2) + "deg");
+        photo.style.setProperty("--rx", ((0.5 - py) * 10).toFixed(2) + "deg");
+        photo.style.setProperty("--gx", (px * 100).toFixed(1) + "%");
+        photo.style.setProperty("--gy", (py * 100).toFixed(1) + "%");
+        visual.classList.add("is-tilt");
+      });
+      visual.addEventListener("pointerleave", function () {
+        photo.style.setProperty("--rx", "0deg");
+        photo.style.setProperty("--ry", "0deg");
+        visual.classList.remove("is-tilt");
+      });
+    }
+
+    // Cartes : projecteur qui suit le pointeur
+    document.addEventListener("pointermove", function (e) {
+      var card = e.target.closest && e.target.closest(".spot");
+      if (!card) return;
+      var r = card.getBoundingClientRect();
+      card.style.setProperty("--x", (e.clientX - r.left) + "px");
+      card.style.setProperty("--y", (e.clientY - r.top) + "px");
+    }, { passive: true });
+  }
+
+  // Liste de contrôle : les segments s'allument l'un après l'autre
+  document.querySelectorAll(".checkbar i").forEach(function (seg, i) {
+    seg.style.setProperty("--n", i);
+  });
+
+  // Chiffres clés : comptage à l'apparition
+  var counters = document.querySelectorAll("[data-count]");
+  if (!reduce && "IntersectionObserver" in window) {
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        countObs.unobserve(entry.target);
+        var el = entry.target;
+        var to = Number(el.getAttribute("data-count"));
+        var start = null;
+        function step(t) {
+          if (start === null) start = t;
+          var k = Math.min((t - start) / 1100, 1);
+          el.textContent = String(Math.round(to * (1 - Math.pow(1 - k, 3))));
+          if (k < 1) requestAnimationFrame(step);
+        }
+        el.textContent = "0";
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { countObs.observe(el); });
+  }
+
+  // Projets en ligne : vérification réelle depuis le navigateur du visiteur.
+  // En cas d'échec on n'affiche rien de plus : un bloqueur ou le réseau du
+  // visiteur ne prouve pas que le service est tombé.
+  document.querySelectorAll("[data-live]").forEach(function (badge) {
+    var url = badge.getAttribute("data-live");
+    var check = badge.querySelector(".live-check");
+    var ctrl = "AbortController" in window ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
+    fetch(url, { mode: "no-cors", cache: "no-store", signal: ctrl ? ctrl.signal : undefined })
+      .then(function () {
+        if (check) check.hidden = false;
+        badge.setAttribute("title", root.getAttribute("lang") === "en"
+          ? "Reachable right now, checked from your browser"
+          : "Joignable à l'instant, vérifié depuis votre navigateur");
+      })
+      .catch(function () {})
+      .finally(function () { clearTimeout(timer); });
+  });
+
+  /* ---------- 8. DÉTAILS ---------- */
 
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
