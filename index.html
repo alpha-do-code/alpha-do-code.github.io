@@ -558,6 +558,43 @@
             </div>
           </article>
 
+          <!-- Sen Vaiselle -->
+          <article class="project spot reveal">
+            <div class="project-media">
+              <svg class="icon project-icon"><use href="#i-database"/></svg>
+              <span class="project-status status-wip">
+                <svg class="icon"><use href="#i-download"/></svg>
+                <span data-i18n="projects.desktop">Application Windows</span>
+              </span>
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Sen Vaiselle</h3>
+              <p class="project-role" data-i18n="projects.sen_role">Caisse et gestion de stock pour une boutique de vaisselle · réécriture complète · 2026</p>
+              <p class="project-desc" data-i18n="projects.sen_desc">
+                Reprise d'une ancienne application de bureau, entièrement réécrite :
+                caisse et ventes, ventes à crédit avec acomptes, retours et annulations,
+                lots d'entrée, inventaire physique, dépenses, rapports PDF et tickets de
+                caisse 58 et 80 mm. Flask, SQLAlchemy et migrations Alembic, mots de passe
+                hachés en argon2, écritures de stock atomiques. Livrée comme logiciel
+                Windows installable (pywebview, PyInstaller, Inno Setup), fabriqué et testé
+                par GitHub Actions, avec une sauvegarde automatique à chaque ouverture.
+              </p>
+              <p class="project-note" data-i18n="projects.sen_note">
+                <svg class="icon"><use href="#i-dot"/></svg>
+                Données de l'ancienne version migrées et réconciliées, sans aucun écart.
+              </p>
+              <ul class="chips chips-sm">
+                <li class="chip">Python</li><li class="chip">Flask</li><li class="chip">SQLAlchemy</li>
+                <li class="chip">argon2</li><li class="chip">PyInstaller</li><li class="chip">GitHub Actions</li>
+              </ul>
+              <div class="project-links">
+                <span class="plink plink-muted">
+                  <svg class="icon"><use href="#i-lock"/></svg><span data-i18n="projects.repo_private">Repo privé</span>
+                </span>
+              </div>
+            </div>
+          </article>
+
         </div>
 
         <div class="more-projects reveal">

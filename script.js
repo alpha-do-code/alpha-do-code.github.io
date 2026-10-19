@@ -107,6 +107,11 @@
     "projects.ndim_role": "Urban mobility app · personal project",
     "projects.ndim_desc": "Trip assistance for the TATA AFTU bus network in Dakar: route search, fare by segment, offline mode. Flutter mobile app, Node.js + Express API with PostgreSQL and PostGIS, OpenStreetMap tiles with no proprietary key.",
 
+    "projects.desktop": "Windows app",
+    "projects.sen_role": "Point of sale & stock management for a tableware shop · full rewrite · 2026",
+    "projects.sen_desc": "Took over an old desktop app and rewrote it entirely: point of sale, credit sales with deposits, returns and cancellations, stock-in batches, physical inventory, expenses, PDF reports and 58/80 mm receipts. Flask, SQLAlchemy and Alembic migrations, argon2-hashed passwords, atomic stock writes. Shipped as an installable Windows program (pywebview, PyInstaller, Inno Setup), built and tested by GitHub Actions, with an automatic backup on every launch.",
+    "projects.sen_note": "Data from the old version migrated and reconciled with zero discrepancies.",
+
     "projects.tail_role": "Tailoring workshop management · built solo · 2026",
     "projects.tail_desc": "App for tailoring workshops: clients and measurement sheets, five-step orders, deposits and PDF receipts shared on WhatsApp. Installable web app (PWA) on Android and iPhone, usable offline thanks to SQLite in WebAssembly. Accounts by phone number and 6-digit code, online backup on Supabase protected by RLS, hosted on Cloudflare, GitHub Actions CI.",
     "projects.tail_note": "Free beta, open to the first tailors testing it.",
