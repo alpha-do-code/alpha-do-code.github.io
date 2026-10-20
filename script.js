@@ -122,7 +122,6 @@
     "projects.more_title": "Other work",
     "projects.more_parr_t": "Sponsorship management, Senegal",
     "projects.more_parr": "Sponsorship validation workflows. Original version in HTML/CSS/JS, rebuild in progress with Next.js.",
-    "projects.more_sen": "Desktop stock-management app, sales tracking and automated reports.",
     "projects.more_bfem_t": "BFEM exam deliberation software",
     "projects.more_bfem": "Data management and deliberation for candidates of the BFEM exam in Senegal.",
     "projects.more_evt_t": "Event management platform",
