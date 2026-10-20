@@ -645,7 +645,7 @@ h1, h2, h3, h4 {
 .projects {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: start;
+  align-items: stretch;
   gap: 1.15rem;
 }
 .project {
@@ -708,10 +708,11 @@ h1, h2, h3, h4 {
   color: var(--text-faint);
 }
 .project-note .icon { width: 14px; height: 14px; color: #febc2e; margin-top: 3px; }
-.chips-sm { margin-top: 1rem; }
+.chips-sm { margin-top: 1rem; margin-bottom: 1.15rem; }
 .chips-sm .chip { font-size: 0.74rem; padding: 0.25rem 0.6rem; }
 
-.project-links { margin-top: 1.15rem; padding-top: 1.1rem; border-top: 1px solid var(--border-soft); display: flex; flex-wrap: wrap; gap: 0.5rem; }
+/* liens collés en bas : les cartes d'une même ligne gardent leurs boutons alignés */
+.project-links { margin-top: auto; padding-top: 1.1rem; border-top: 1px solid var(--border-soft); display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .plink {
   display: inline-flex;
   align-items: center;
